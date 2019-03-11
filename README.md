@@ -1,16 +1,14 @@
 # engifarm-destructor
-
-## Spesifikasi Tugas Besar IA
 IF2210 - Pemrograman Berorientasi Objek **_Engi’s Farm_**
 
-### Deskripsi Umum Tugas
+## Deskripsi Umum Tugas
 Tugas ini adalah penerapan dari topik yang telah dibahas terkait konsep Pemrograman Berorientasi Objek.
 
-### Tujuan
+## Tujuan
 Mahasiswa mampu merancang kelas dengan paradigma berorientasi objek, untuk menghasilkan rancangan kelas dan pengelompokan kelas yang sesuai dengan aturan serta dokumentasi rancangan dengan baik
 Mahasiswa mampu mengantisipasi dan mengelola perubahan spesifikasi perangkat lunak
 
-### Deskripsi Persoalan
+## Deskripsi Persoalan
 Sudah hampir setahun semenjak Chef membuka restoran *Engi’s Kitchen*. Chef telah lelah mengurus bisnis restorannya yang sudah berkembang pesat. Banyaknya peran yang harus ia ambil setelah ekspansi kurang lebih empat bulan lalu membuatnya lelah. Hari itu adalah hari yang cerah, Chef, sedang bebersih rumahnya. Saat membersihkan rumahnya, ia menemukan sebuah amplop berwarna putih bersih tanpa tulisan apapun di atasnya. Chef membuka amplop putih tersebut dan menemukan sepucuk surat yang ditulis oleh kakeknya yang telah meninggal sepuluh tahun lalu. Pada surat tersebut, tertulis bahwa kakeknya telah mewariskan padanya sebuah peternakan untuknya. Melihat kesempatan ini, Chef pun menutup restoran yang telah ia buka nyaris setahun. Chef tidak membuang waktu dan segera mencari peternakan warisan kakeknya untuk membuka **_Engi’s Farm_**. Petualangan Chef di **_Engi’s Farm_** pun dimulai.
 
 Pemain (`Player`) memiliki wadah air yang dapat menampung air dalam jumlah terbatas dan tas yang dapat menampung sejumlah terbatas Product.
@@ -23,8 +21,8 @@ Pada **_Engi’s Farm_**, terdapat kumpulan petak tanah (`Cell`) yang direpresen
 
 Hewan ternak (*Farm Animal*) dapat dikategorikan sebagai penghasil telur (*Egg Producing* *Farm Animal*, penghasil daging (Meat Producing *Farm Animal*), dan penghasil susu (Milk Producing *Farm Animal*). Hasil yang dapat dijual oleh peternakan (Product) dapat dikategorikan sebagai hasil ternak (Farm Product) dan hasil sampingan peternakan (*Side Product*).
 
-### Deskripsi Mekanisme
-#### Mekanisme Umum
+## Deskripsi Mekanisme
+### Mekanisme Umum
 Pada saat memulai permainan, inisialisasi seluruh `Cell` berdasarkan layout yang telah dibuat sebelumnya (baik melalui file eksternal ataupun hardcode). Peta harus memuat semua kelas yang dapat ditampilkan (misal : *FarmAnimal*, `Facility`, `Land`, `Player`). Hewan yang lapar harus ditampilkan berbeda dengan hewan yang tidak lapar. Begitu pula dengan `Land` yang memiliki rumput dan tidak
 
 Jika perlu, buatlah sebuah kelas abstrak Renderable dengan virtual method render() yang mengembalikan karakter yang merepresentasikan objek tersebut bila ditampilkan untuk membantu dalam menampilkan objek.
@@ -33,7 +31,7 @@ Berikut merupakan contoh Ilustrasi **_Engi’s Farm_** (warna pada ilustrasi han
 
 ![alt text](https://i.postimg.cc/FsQbYQBt/Annotation-2019-03-11-220003.jpg)
 
-#### Mekanisme `Player`
+### Mekanisme `Player`
 `Player` dapat bergerak bebas pada semua `Cell` yang bertipe `Land` selama tidak ada hewan pada `Cell` tersebut. Setiap `Player` memiliki beberapa aksi yang dapat dilakukan selain bergerak, yaitu `Talk`, `Interact`, `Kill`, dan `Grow`. `Talk` digunakan untuk berbicara dengan hewan; `Interact` digunakan untuk berinteraksi dengan *FarmAnimal* atau `Facility` di samping `Player`; `Kill` untuk menyembelih hewan; `Grow` digunakan untuk menyiram `Land` dengan wadah air yang dimiliki dan menumbuhkan rumput di petak `Land` tempat `Player` berdiri.
 
 `Player` dapat berinteraksi dengan `Well` untuk mengisi air, dan berinteraksi dengan `Truck` untuk mengosongkan tas dan menjual seluruh Product pada inventory dan mendapatkan uang. Setiap Product memiliki harga yang berbeda. Setelah `Player` berinteraksi dengan `Truck`, maka `Truck` tidak dapat digunakan untuk jangka waktu tertentu. Permainan akan selesai apabila jumlah hewan pada **_Engi’s Farm_** sudah habis.
@@ -42,7 +40,7 @@ Berikut merupakan contoh Ilustrasi **_Engi’s Farm_** (warna pada ilustrasi han
 
 Perintah `Kill` hanya dapat digunakan pada hewan MeatProducingFarmAnimal untuk mendapatkan Product daging. Namun hewan tersebut akan mati. Sebaliknya, perintah `Interact` hanya dapat digunakan pada hewan *EggProducingFarmAnimal* dan MilkProducingFarmAnimal
 
-#### Mekanisme *FarmAnimal*
+### Mekanisme *FarmAnimal*
 Setiap petak `Land` pada **_Engi’s Farm_** hanya dapat diisi oleh satu ekor hewan pada satu waktu. Setiap petak `Land` dapat ditumbuhi rumput sebagai makanan hewan ketika disiram air dengan wadah air yang dimiliki pemain.
 
 Pada **_Engi’s Farm_** Hewan ternak dapat bergerak secara acak selama berada di area `Land` yang sesuai. Hewan juga dapat mengeluarkan suara ketika diajak berbicara (berupa teks yang dicetak pada layar). Misal ayam berbunyi "petok" atau sapi berbunyi "moo". Seekor hewan dapat dikategorikan sebagai lebih dari satu jenis hewan ternak.
