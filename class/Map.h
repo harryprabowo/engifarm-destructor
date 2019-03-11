@@ -6,7 +6,7 @@
 #include <vector>
 #include <tuple>
 #include <memory>
-#include <windows.h>.
+#include "exception/exception.h"
 
 using namespace std;
 
@@ -47,7 +47,7 @@ class Map
     GameObjType &getObjectAt(short x, short y);
 
     // setter
-    // if not empty, throw MapCellUnavailable exception
+    // if not empty, throw MultipleOccupancy exception
     void setObjectAt(short x, short y, GameObjType &obj);
 
     // returns position (x,y) of obj
@@ -60,9 +60,6 @@ class Map
     
     // writes map to textfile
     void exportMap(ofstream &file);
-
-    /* ----------------------------EXCEPTIONS----------------------------- */
-    static void reportErr(const char *message);
 };
 
 #endif
