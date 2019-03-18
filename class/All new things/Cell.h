@@ -9,6 +9,7 @@ class Cell{
 		Cell(int _x, int _y);
 		int getX();
 		int getY();
+		virtual int cellType();
 };
 
 #endif

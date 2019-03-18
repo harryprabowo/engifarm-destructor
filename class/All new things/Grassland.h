@@ -8,6 +8,7 @@ class Grassland : public Land
 public:
 	Grassland();
 	~Grassland();
+	int landType(); //return an int representation of child class barn
 	
 };
 #endif

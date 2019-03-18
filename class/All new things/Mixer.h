@@ -8,6 +8,6 @@ class Mixer : public Facility
 public:
 	Mixer();
 	~Mixer();
-	
+	int facilityType(); //return an int representation of child class mixer	
 };
 #endif

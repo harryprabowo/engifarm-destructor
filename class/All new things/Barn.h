@@ -4,7 +4,8 @@
 #include "Land.h"
 
 class Barn : public Land{
-
+	public:
+		int landType(); //return an int representation of child class barn
 };
 
 #endif
