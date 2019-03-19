@@ -14,6 +14,8 @@ public:
     void Interact(Player& P); //create new DuckEgg, add to inventory
     void Kill(Player& P); //create new DuckMeat, add to inventory
 
+    char Render();        //outputs char representation
+    void SetRender(char); //setter
 };
 
 #endif

@@ -14,6 +14,9 @@ public:
     void TalkWithPlayer();
     void Interact(Player& P); //create new CowMilk, add to inventory
     void Kill(Player& P); //create new CowMeat, add to inventory
+
+    char Render();        //outputs char representation
+    void SetRender(char); //setter
 };
 
 #endif

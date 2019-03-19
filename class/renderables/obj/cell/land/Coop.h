@@ -8,6 +8,9 @@ class Coop : public Land{
 		Coop(); //ctor
 		
 		LAND_TYPE landType(); //return an int representation of child class coop
+
+		char Render();		  //outputs char representation
+		void SetRender(char); //setter
 };
 
 #endif

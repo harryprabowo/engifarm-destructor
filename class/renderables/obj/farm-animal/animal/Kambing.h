@@ -16,6 +16,9 @@ public:
     void TalkWithPlayer();
     void Interact(Player& P); //create new GoatMilk, add to inventory
     void Kill(Player& P); //create new GoatMeat, add to inventory
+
+    char Render();        //outputs char representation
+    void SetRender(char); //setter
 };
 
 #endif

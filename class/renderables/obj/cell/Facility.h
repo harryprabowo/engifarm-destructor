@@ -2,6 +2,7 @@
 #define _FACILITY_H
 
 #include "Cell.h"
+#include "Player.h"
 
 enum FACILITY_TYPE {
 	WELL,
@@ -11,7 +12,7 @@ enum FACILITY_TYPE {
 
 class Facility : public Cell{
 	private:
-		const CELLTYPE type;
+		const CELL_TYPE type;
 	public:
 		Facility(); //ctor
 

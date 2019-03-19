@@ -13,5 +13,8 @@ public:
 	FACILITY_TYPE facilityType(); //return an int representation of child class truck
 
 	void Interact(Player& P); //mengisi menjual semua product di inventori player jika tidak sedang cooldown
+
+	char Render();		  //outputs char representation
+	void SetRender(char); //setter
 };
 #endif

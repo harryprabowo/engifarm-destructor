@@ -7,7 +7,7 @@ enum LAND_TYPE {
 	COOP,
 	GRASS,
 	BARN
-}
+};
 
 class Land : public Cell{
 	public:

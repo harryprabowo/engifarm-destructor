@@ -8,5 +8,8 @@ class Grassland : public Land{
 		Grassland(); //ctor
 
 		LAND_TYPE landType(); //return an int representation of child class barn
+
+		char Render();		  //outputs char representation
+		void SetRender(char); //setter
 };
 #endif

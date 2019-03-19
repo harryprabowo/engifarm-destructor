@@ -11,6 +11,9 @@ public:
     // Berbicara dengan Player
     void TalkWithPlayer();
     void Kill(Player& P); //create new BirdMeat, add to inventory
+
+    char Render();        //outputs char representation
+    void SetRender(char); //setter
 };
 
 #endif
