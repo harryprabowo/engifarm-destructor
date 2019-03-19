@@ -7,6 +7,7 @@
 class SideProduct : public Product
 {
 public:
-	SideProduct(int price);
+	void Mix(Player& P,FarmProduct&, FarmProduct&); //menghasilkan side product bila bisa dimix
+	virtual int sideProductType();
 };
 #endif

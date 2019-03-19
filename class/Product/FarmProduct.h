@@ -6,6 +6,6 @@
 class FarmProduct : public Product
 {
 public:
-	FarmProduct(int price);
+	virtual int farmProductType(); //mengembalikan jenis farm product
 };
 #endif

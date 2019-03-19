@@ -5,15 +5,11 @@
 
 class MilkProducingFarmAnimal : public FarmAnimal {
 protected:
-    string Milk;        // Nama susu yang dihasilkan
     bool FarmProductReady;   // Hewan sudah memiliki FarmProduct atau belum
 
 public:
     // Konstruktor MilkProducingFarmAnimal
     MilkProducingFarmAnimal(string MilkType);
-
-    // Milk
-    string GetMilk();
 
     // Mendapatkan status FarmProductReady
     bool GetFarmProductReady();
@@ -24,7 +20,7 @@ public:
     void EatFood();
 
     // Fungsi Interact dengan Player
-    string InteractWithPlayer();
+    virtual void Interact(Player& P);
 };
 
 #endif

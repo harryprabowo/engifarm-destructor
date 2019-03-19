@@ -9,8 +9,10 @@
 
 class Facility : public Cell{
 	public:
+		Facility(); //ctor
 		int cellType(); //return an int representation of child class facility
-		virtual int facilityType();
+		virtual int facilityType(); //mengembalikan jenis facility
+		virtual void Interact(Player& P);
 };
 
 #endif

@@ -4,6 +4,8 @@
 #define LAND_IDX 1
 #define FAC_IDX 2
 
+#include "../Player/Player.h"
+
 class Cell{
 	protected:
 		int x;

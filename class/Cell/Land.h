@@ -9,9 +9,10 @@
 
 class Land : public Cell{
 	public:
-		Land();
+		Land(); //ctor
 		int cellType(); //return an int representation of child class land
-		virtual int landType();
+		void Grow(Player& P); //mengubah land menjadi grassland dengan menyiramnya
+		virtual int landType(); //mengembalikan jenis land
 };
 
 #endif

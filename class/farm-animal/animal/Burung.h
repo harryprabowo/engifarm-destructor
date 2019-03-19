@@ -1,7 +1,7 @@
 #ifndef BURUNG_H
 #define BURUNG_H
 
-#include "MeatProducingFarmAnimal.h"
+#include "../MeatProducingFarmAnimal.h"
 
 class Burung : public MeatProducingFarmAnimal {
 public:
@@ -10,6 +10,7 @@ public:
     Burung(int _x, int _y);
     // Berbicara dengan Player
     void TalkWithPlayer();
+    void Kill(Player& P); //create new BirdMeat, add to inventory
 };
 
 #endif

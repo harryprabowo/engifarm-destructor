@@ -1,8 +1,8 @@
 #ifndef ULAR_H
 #define ULAR_H
 
-#include "EggProducingFarmAnimal.h"
-#include "MeatProducingFarmAnimal.h"
+#include "../EggProducingFarmAnimal.h"
+#include "../MeatProducingFarmAnimal.h"
 
 class Ular : public EggProducingFarmAnimal, public MeatProducingFarmAnimal {
 public:
@@ -11,6 +11,8 @@ public:
     Ular(int _x, int _y);
     // Berbicara dengan Player
     void TalkWithPlayer();
+    void Interact(Player& P); //create new SnakeEgg, add to inventory
+    void Kill(Player& P); //create new SnakeMeat, add to inventory
 };
 
 #endif

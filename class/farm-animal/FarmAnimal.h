@@ -1,11 +1,11 @@
 #ifndef FARMANIMAL_H
 #define FARMANIMAL_H
 
-#include "../All new things/Cell.h"
+#include "../Cell/Cell.h"
 
 class FarmAnimal {
 protected:
-	Land* location;     // Pointer ke lokasi hewan
+	Cell* location;     // Pointer ke lokasi hewan
 	bool Hungry;        // Menandai hewan lapar(true) dan tidak lapar(false)
 	int HungryTime;     // Menghitung waktu hewan ketika lapar
 	bool Alive;         // State hewan hidup atau mati

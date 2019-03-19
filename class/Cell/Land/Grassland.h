@@ -3,9 +3,9 @@
 
 #include "../Land.h"
 
-class Grassland : public Land
-{
-public:
-	int landType(); //return an int representation of child class barn
+class Grassland : public Land{
+	public:
+		Grassland(); //ctor
+		int landType(); //return an int representation of child class barn
 };
 #endif

@@ -5,26 +5,22 @@
 
 class EggProducingFarmAnimal : public FarmAnimal{
 protected:
-    string Egg;         // Nama telur yang dihasilkan
     bool FarmProductReady;   // Hewan sudah memiliki FarmProduct atau belum
 
 public:
     // Konstruktor EggProducingFarmAnimal
-    EggProducingFarmAnimal(string EggType);
-
-    // Egg
-    string GetEgg();
+    EggProducingFarmAnimal();
 
     // FarmProductReady
     bool GetFarmProductReady();
-    // Mengubah FarmProductReady menjadi TRUE
-    void SetFarmProductReady();
+    // Mengubah FarmProductReady
+    void SetFarmProductReady(bool);
 
     // Makan
     void EatFood();
 
     // Fungsi Interact dengan Player
-    string InteractWithPlayer();
+    virtual void Interact(Player& P);
 };
 
 #endif

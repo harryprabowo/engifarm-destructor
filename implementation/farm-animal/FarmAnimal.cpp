@@ -1,4 +1,4 @@
-#include "FarmAnimal.h"
+#include "../../class/farm-animal/FarmAnimal.h"
 
 // *************************** FarmAnimal ***************************//
 // Konstruktor FarmAnimal
@@ -83,7 +83,7 @@ bool EggProducingFarmAnimal::GetFarmProductReady() {
 }
 
 // Fungsi Interact dengan Player
-string EggProducingFarmAnimal::InteractWithPlayer() {
+string EggProducingFarmAnimal::Interact() {
 	if (FarmProductReady) {
         FarmProductReady = false;
         return Egg;
@@ -111,7 +111,7 @@ bool MilkProducingFarmAnimal::GetFarmProductReady() {
 
 
 // Fungsi Interact dengan Player
-string MilkProducingFarmAnimal::InteractWithPlayer() {
+string MilkProducingFarmAnimal::Interact() {
 	if (FarmProductReady) {
         FarmProductReady = false;
         return Milk;
@@ -136,7 +136,7 @@ bool MeatProducingFarmAnimal::GetAlive() {
 }
 
 // Fungsi Kill oleh Player, menghasilkan nama daging
-string MeatProducingFarmAnimal::KilledByPlayer() {
+string MeatProducingFarmAnimal::Kill() {
 	Alive = false;
     return Meat;
 }
