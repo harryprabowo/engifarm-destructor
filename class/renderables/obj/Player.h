@@ -20,7 +20,7 @@ class Player
 	int tick; //menghitung jumlah aksi yang dilalui
 	Cell &location;
 	vector<Product> inventory;
-	Map<Cell> &map;
+	Map<Renderables> &map;
 
 	void processTick();
 	/*
@@ -48,7 +48,7 @@ class Player
 	int getTick();
 	Cell getLocation();
 	vector<Product> getInventory();
-	Map<Cell> getMap();
+	Map<Renderables> getMap();
 
 	//setter
 	void setName(string);
