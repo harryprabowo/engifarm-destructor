@@ -12,12 +12,13 @@
 
 class Player
 {
-private:
+  private:
 	string name;
 	int bottle;
-	Land* location;
+	Land *location;
 	vector<Product> inventory;
-public:
+
+  public:
 	//ctor
 	Player(string);
 	//dtor
@@ -33,16 +34,16 @@ public:
 	void setName();
 	//function in player
 	//talk to animal
-	void Talk(FarmAnimal&);
+	void Talk(FarmAnimal &);
 	//mix in mixer
-	void Mix(FarmProduct&, FarmProduct&);
+	void Mix(FarmProduct &, FarmProduct &);
 	//interact
-	void Interact(Well&);
-	void Interact(Truck&);
-	void Interact(FarmAnimal&);
+	void Interact(Well &);
+	void Interact(Truck &);
+	void Interact(FarmAnimal &);
 	//kill animal
-	void Kill(FarmAnimal&);
+	void Kill(FarmAnimal &);
 	//put water in a land
-	void Grow(Land&);
+	void Grow(Land &);
 };
 #endif

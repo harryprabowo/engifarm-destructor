@@ -2,17 +2,15 @@
 #define MAP_H
 
 //#include generic parent template
-#include <string>
-#include <vector>
-#include <tuple>
-#include <memory>
 #include "exception/exception.h"
+#include "linkedlist/Node.h"
 
 using namespace std;
 
 #define MAX_MAP_WIDTH 500
 #define MAX_MAP_HEIGHT 400
 
+template<class T>
 class Map
 {
   friend class Table;
@@ -20,14 +18,14 @@ class Map
   private:
     const short m_mapWidth;
     const short m_mapHeight;
-    vector<vector<shared_ptr<GameObjType>>> m_mapArray; // parent type object undefined!
+    Node<T> *m_mapArray; // parent type object undefined!
 
   public:
     // default constructor - create new file from empty template
     Map();
 
     // constructor with map ID parameter
-    Map(string map_id);
+    Map(int map_id);
 
     // copy constructor
     Map(const Map &M);
@@ -40,26 +38,26 @@ class Map
 
     /* ------------------------------METHODS------------------------------ */
     // returns TRUE if (x,y) is empty, else FALSE
-    bool isEmptyCell(short x, short y);
+    bool isEmpty(int x, int y);
 
     // getter - can access abstract properties only
     // if is empty, throw ObjectNotFound exception
-    GameObjType &getObjectAt(short x, short y);
+    T &getObjectAt(int x, int y);
 
     // setter
     // if not empty, throw MultipleOccupancy exception
-    void setObjectAt(short x, short y, GameObjType &obj);
+    void setObjectAt(int x, int y, T &obj);
 
     // returns position (x,y) of obj
     // if obj not on map, throw ObjectNotFound exception
-    tuple<short, short> searchMap(GameObjType &obj);
+    tuple<int, int> searchMap(T &obj);
 
     /* --------------------FILES-|-Directory MUST Exist------------------- */
     // loads map from textfile
-    void importMap(ifstream &file);
+    Node<T> importMap(ifstream &file);
     
     // writes map to textfile
-    void exportMap(ofstream &file);
+    Node<T> exportMap(ofstream &file);
 };
 
 #endif
