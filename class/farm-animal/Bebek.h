@@ -8,6 +8,7 @@ class Bebek : public EggProducingFarmAnimal, public MeatProducingFarmAnimal {
 public:
     // Konstruktor Bebek
     Bebek();
+    Bebek(int _x, int _y);
     // Berbicara dengan Player
     void TalkWithPlayer();
 };
