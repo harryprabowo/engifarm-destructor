@@ -1,7 +1,7 @@
 #ifndef MILKPRODUCINGFARMANIMAL_H
 #define MILKPRODUCINGFARMANIMAL_H
 
-#include "FarmAnimal.h"
+#include "../FarmAnimal.h"
 
 class MilkProducingFarmAnimal : public FarmAnimal {
 protected:

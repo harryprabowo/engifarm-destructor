@@ -1,14 +1,15 @@
 #ifndef FARMANIMAL_H
 #define FARMANIMAL_H
 
-#include "../Cell/Cell.h"
+#include "Cell.h"
+#include "Player.h"
 
-class FarmAnimal {
+class FarmAnimal : public Renderables {
 protected:
-	Cell* location;     // Pointer ke lokasi hewan
-	bool Hungry;        // Menandai hewan lapar(true) dan tidak lapar(false)
-	int HungryTime;     // Menghitung waktu hewan ketika lapar
-	bool Alive;         // State hewan hidup atau mati
+	Cell& location;     // Pointer ke lokasi hewan
+	bool isHungry;        // Menandai hewan lapar(true) dan tidak lapar(false)
+	int hungryTime;     // Menghitung waktu hewan ketika lapar
+	bool alive;         // State hewan hidup atau mati
 
 public:
 	// Konstruktor FarmAnimal
@@ -17,7 +18,7 @@ public:
 	~FarmAnimal();
 
 	// Position
-	Land GetLocation();
+	Cell& GetLocation();
 	void RandomMove();
 	void MoveUp();
 	void MoveDown();

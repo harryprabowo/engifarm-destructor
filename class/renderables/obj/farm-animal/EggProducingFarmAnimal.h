@@ -1,13 +1,14 @@
 #ifndef EGGPRODUCINGFARMANIMAL_H
 #define EGGPRODUCINGFARMANIMAL_H
 
-#include "FarmAnimal.h"
+#include "../FarmAnimal.h"
 
-class EggProducingFarmAnimal : public FarmAnimal{
-protected:
-    bool FarmProductReady;   // Hewan sudah memiliki FarmProduct atau belum
+class EggProducingFarmAnimal : public FarmAnimal
+{
+  protected:
+    bool FarmProductReady; // Hewan sudah memiliki FarmProduct atau belum
 
-public:
+  public:
     // Konstruktor EggProducingFarmAnimal
     EggProducingFarmAnimal();
 
@@ -20,7 +21,7 @@ public:
     void EatFood();
 
     // Fungsi Interact dengan Player
-    virtual void Interact(Player& P);
+    virtual void Interact(Player &P);
 };
 
 #endif

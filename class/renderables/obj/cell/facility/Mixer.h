@@ -7,7 +7,9 @@ class Mixer : public Facility
 {
 public:
 	Mixer(); //ctor
-	int facilityType(); //return an int representation of child class mixer
+	
+	FACILITY_TYPE facilityType(); //return an int representation of child class mixer
+	
 	void Interact(Player& P); //mengisi wadah air
 };
 #endif

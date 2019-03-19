@@ -4,10 +4,11 @@
 #include <string>
 #include <vector>
 #include <iterator>
-#include "../Cell/Land.h"
-#include "../Cell/Facility.h"
-#include "../Product/FarmProduct.h"
-#include "../Map/Map.h"
+#include "cell/Land.h"
+#include "cell/Facility.h"
+#include "../product/Product.h"
+#include "../product/FarmProduct.h"
+#include "../map/Map.h"
 
 using namespace std;
 
@@ -17,9 +18,9 @@ class Player
 	string name;
 	int bottle;
 	int tick; //menghitung jumlah aksi yang dilalui
-	Cell *location;
+	Cell &location;
 	vector<Product> inventory;
-	Map<Cell> map;
+	Map<Cell> &map;
 
 	void processTick();
 	/*
@@ -63,7 +64,8 @@ class Player
 	void Talk(); //talk to animal
 	void Mix(FarmProduct &, FarmProduct &);
 	void Interact();
-	void Kill(); 
+	void Kill();
 	void Grow();
 };
+
 #endif

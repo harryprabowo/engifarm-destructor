@@ -6,7 +6,8 @@
 class Barn : public Land{
 	public:
 		Barn(); //ctor
-		int landType(); //return an int representation of child class barn
+		
+		LAND_TYPE landType(); //return an int representation of child class barn
 };
 
 #endif

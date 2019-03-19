@@ -3,7 +3,6 @@
 
 //#include generic parent template
 #include <tuple>
-#include "../exception/exception.h"
 #include "linkedlist/Node.h"
 
 using namespace std;

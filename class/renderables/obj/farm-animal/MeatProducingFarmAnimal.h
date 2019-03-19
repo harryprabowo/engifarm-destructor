@@ -1,7 +1,7 @@
 #ifndef MEATPRODUCINGFARMANIMAL_H
 #define MEATPRODUCINGFARMANIMAL_H
 
-#include "FarmAnimal.h"
+#include "../FarmAnimal.h"
 
 class MeatProducingFarmAnimal : public FarmAnimal {
 public:
