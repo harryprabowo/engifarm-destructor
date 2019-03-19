@@ -17,10 +17,9 @@ class Player
 	int bottle;
 	Land *location;
 	vector<Product> inventory;
-
   public:
 	//ctor
-	Player(string);
+	Player(string _name);
 	//dtor
 	~Player();
 	//getter

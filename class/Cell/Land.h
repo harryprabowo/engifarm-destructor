@@ -3,6 +3,10 @@
 
 #include "Cell.h"
 
+#define COOP_IDX 1
+#define GRASS_IDX 2
+#define BARN_IDX 3
+
 class Land : public Cell{
 	public:
 		Land();

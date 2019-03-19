@@ -6,8 +6,7 @@ class Product
 protected:
 	int price;
 public:
-	Product();
-	~Product();
+	Product(int _price);
 	int getPrice();
 	void setPrice(int p);
 };

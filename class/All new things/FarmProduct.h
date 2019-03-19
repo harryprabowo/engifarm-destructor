@@ -6,8 +6,6 @@
 class FarmProduct : public Product
 {
 public:
-	FarmProduct();
-	~FarmProduct();
-	
+	FarmProduct(int price);
 };
 #endif

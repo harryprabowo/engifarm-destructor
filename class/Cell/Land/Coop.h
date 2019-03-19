@@ -1,7 +1,7 @@
 #ifndef _COOP_H
 #define _COOP_H 
 
-#include "Land.H"
+#include "../Land.h"
 
 class Coop : public Land{
 	public:

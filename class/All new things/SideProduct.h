@@ -7,8 +7,6 @@
 class SideProduct : public Product
 {
 public:
-	SideProduct();
-	~SideProduct();
-	
+	SideProduct(int price);
 };
 #endif
