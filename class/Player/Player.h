@@ -4,45 +4,66 @@
 #include <string>
 #include <vector>
 #include <iterator>
-#include "Cell.h"
-#include "Land.h"
-#include "Facility.h"
-#include "Product.h"
-#include "FarmProduct.h"
+#include "../Cell/Land.h"
+#include "../Cell/Facility.h"
+#include "../Product/FarmProduct.h"
+#include "../Map/Map.h"
+
+using namespace std;
 
 class Player
 {
   private:
 	string name;
 	int bottle;
-	Land *location;
+	int tick; //menghitung jumlah aksi yang dilalui
+	Cell *location;
 	vector<Product> inventory;
+	Map<Cell> map;
+
+	void processTick();
+	/*
+		dipanggil setiap aksi :
+		- move
+		- talk
+		- mix
+		- interact
+		- kill
+		- grow
+
+		mengatur penambahan tick, pergerakan random farm animal,
+		dan juga mengecek kondisi berakhirnya game.
+	*/
+
   public:
-	//ctor
+	//ctor player, memanggil juga ctor map
 	Player(string _name);
 	//dtor
 	~Player();
+
 	//getter
-	Land getLocation();
 	string getName();
-	//setLoc
+	int getBottle();
+	int getTick();
+	Cell getLocation();
+	vector<Product> getInventory();
+	Map<Cell> getMap();
+
+	//setter
+	void setName(string);
+	void setBottle(int);
+	void addProduct(string productName, int count);
+	void removeProduct(string productName, int count);
+
+	//Fungsi-fungsi yang memanggil processTick
 	void MoveUp();
 	void MoveDown();
 	void MoveLeft();
 	void MoveRight();
-	void setName();
-	//function in player
-	//talk to animal
-	void Talk(FarmAnimal &);
-	//mix in mixer
+	void Talk(); //talk to animal
 	void Mix(FarmProduct &, FarmProduct &);
-	//interact
-	void Interact(Well &);
-	void Interact(Truck &);
-	void Interact(FarmAnimal &);
-	//kill animal
-	void Kill(FarmAnimal &);
-	//put water in a land
-	void Grow(Land &);
+	void Interact();
+	void Kill(); 
+	void Grow();
 };
 #endif
