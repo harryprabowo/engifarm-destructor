@@ -8,6 +8,7 @@ class Ayam : public EggProducingFarmAnimal, public MeatProducingFarmAnimal {
 public:
     // Konstruktor ayam
     Ayam();
+    Ayam(int _x, int _y);
     // Berbicara dengan Player
     void TalkWithPlayer();
 };

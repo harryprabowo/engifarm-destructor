@@ -7,6 +7,7 @@ class Burung : public MeatProducingFarmAnimal {
 public:
     // Konstruktor Burung
     Burung();
+    Burung(int _x, int _y);
     // Berbicara dengan Player
     void TalkWithPlayer();
 };

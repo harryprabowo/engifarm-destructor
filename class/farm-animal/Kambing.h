@@ -8,6 +8,7 @@ class Kambing : public MilkProducingFarmAnimal, public MeatProducingFarmAnimal {
 public:
     // Konstruktor kambing
     Kambing();
+    Kambing(int _x, int _y);
     // Berbicara dengan Player
     void TalkWithPlayer();
 };
