@@ -5,10 +5,8 @@
 #include "../MeatProducingFarmAnimal.h"
 
 class Sapi : public MilkProducingFarmAnimal, public MeatProducingFarmAnimal {
-
 public:
     // Konstruktor sapi
-    Sapi();
     Sapi(int _x, int _y);
     // Berbicara dengan Player
     void Talk();

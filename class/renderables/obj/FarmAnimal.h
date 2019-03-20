@@ -13,9 +13,7 @@ protected:
 
 public:
 	// Konstruktor FarmAnimal
-	FarmAnimal();
 	FarmAnimal(int _x, int _y);
-	~FarmAnimal();
 
 	// Position
 	Cell& GetLocation();
@@ -29,7 +27,7 @@ public:
 	// Melihat State Hungry
 	bool IsHungry();
 	// Melihat state Alive
-	bool GetAlive();
+	bool IsAlive();
 	// Mendapatkan HungryTime
 	int GetHungryTime();
 	// Mengubah state Hungry hewan
@@ -42,7 +40,7 @@ public:
 	// Mengecek hewan mati atau belum karena lapar, kalau mati Alive = false
 	void Dead();
 
-	// Hewan makan makanan
+	// Hewan makan rumput jika lapar dan berada pada Cell yang ditumbuhi rumput
 	// Hewan yang memiliki FarmProduct akan berbeda jika makan
 	void EatFood();
 

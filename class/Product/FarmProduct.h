@@ -20,9 +20,9 @@ enum FARMPRODUCT_TYPE
     GOATMILK
 };
 
-class FarmProduct : public Product
-{
+class FarmProduct : public Product{
 public:
+    FarmProduct(int);
 	virtual FARMPRODUCT_TYPE farmProductType() = 0; //mengembalikan jenis farm product
 };
 #endif

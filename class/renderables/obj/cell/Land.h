@@ -18,7 +18,11 @@ class Land : public Cell{
 
 		CELL_TYPE cellType(); //return an int representation of child class land
 
-		void Grow(Player &P); //mengubah land menjadi grassland dengan menyiramnya
+		void Grow(Player &P); //menumbuhkan rumput pada Land
+
+    	bool IsGrass(); //return grass
+
+    	void setGrass(bool); //setter grass
 
 		virtual LAND_TYPE landType() = 0; //mengembalikan jenis land
 };

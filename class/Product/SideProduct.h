@@ -14,6 +14,7 @@ enum SIDEPRODUCT_TYPE
 class SideProduct : public Product
 {
 public:
+	SideProduct(int);
 	void Mix(Player& P,FarmProduct&, FarmProduct&); //menghasilkan side product bila bisa dimix
 	virtual SIDEPRODUCT_TYPE sideProductType() = 0;
 };

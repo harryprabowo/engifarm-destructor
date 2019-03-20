@@ -9,12 +9,12 @@ protected:
 
 public:
     // Konstruktor MilkProducingFarmAnimal
-    MilkProducingFarmAnimal(string MilkType);
+    MilkProducingFarmAnimal(int _x, int _y);
 
     // Mendapatkan status FarmProductReady
     bool GetFarmProductReady();
-    // Mengubah FarmProductReady menjadi TRUE
-    void SetFarmProductReady();
+    // Mengubah FarmProductReady
+    void SetFarmProductReady(bool);
 
     // Makan
     void EatFood();

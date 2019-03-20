@@ -6,7 +6,7 @@
 class MeatProducingFarmAnimal : public FarmAnimal {
 public:
     // Konstruktor MeatProducingFarmAnimal
-    MeatProducingFarmAnimal(string MeatType);
+    MeatProducingFarmAnimal(int _x, int _y);
 
     // Fungsi Kill oleh Player menghasilkan nama daging
     virtual void Kill(Player& P);

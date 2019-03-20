@@ -21,8 +21,6 @@ class Cell : public Renderables
     tuple<int, int> get_position();
     void SetPosition(tuple<int, int>);
 
-    bool IsGrass();
-
     char render();
     void set_render(char);
 

@@ -7,7 +7,6 @@
 class Ular : public EggProducingFarmAnimal, public MeatProducingFarmAnimal {
 public:
     // Konstruktor ular
-    Ular();
     Ular(int _x, int _y);
     // Berbicara dengan Player
     void Talk();

@@ -11,6 +11,7 @@ class Product
 protected:
 	int price;
 public:
+	Product(int);
 	int getPrice();
 };
 #endif
