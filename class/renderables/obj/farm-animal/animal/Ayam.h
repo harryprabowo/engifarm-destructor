@@ -10,7 +10,7 @@ class Ayam : public EggProducingFarmAnimal, public MeatProducingFarmAnimal {
         Ayam();
         Ayam(int _x, int _y);
         // Berbicara dengan Player
-        void TalkWithPlayer();
+        void Talk();
         void Interact(Player& P); //create new ChickenEgg, add to inventory
         void Kill(Player& P); //create new ChickenMeat, add to inventory
 

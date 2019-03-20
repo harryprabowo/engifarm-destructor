@@ -3,12 +3,14 @@
 
 #include "../FarmProduct.h"
 
+const int harga;
+
 class ChickenEgg : public FarmProduct
 {
 public:
 	ChickenEgg();
 	//set price dari Product ini
 
-	int farmProductType(); //mengembalikan identifier dari produk ini
+	FARMPRODUCT_TYPE farmProductType(); //mengembalikan identifier dari produk ini
 };
 #endif

@@ -11,7 +11,7 @@ public:
     Sapi();
     Sapi(int _x, int _y);
     // Berbicara dengan Player
-    void TalkWithPlayer();
+    void Talk();
     void Interact(Player& P); //create new CowMilk, add to inventory
     void Kill(Player& P); //create new CowMeat, add to inventory
 

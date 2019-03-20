@@ -14,7 +14,6 @@ class Cell : public Renderables
 {
   private:
     tuple<int, int> position;
-    bool grass;
 
   public:
     Renderables(tuple<int, int>);
@@ -23,7 +22,6 @@ class Cell : public Renderables
     void SetPosition(tuple<int, int>);
 
     bool IsGrass();
-    void SetGrass(bool);
 
     char render();
     void set_render(char);

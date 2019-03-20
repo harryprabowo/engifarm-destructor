@@ -10,7 +10,7 @@ public:
     Ular();
     Ular(int _x, int _y);
     // Berbicara dengan Player
-    void TalkWithPlayer();
+    void Talk();
     void Interact(Player& P); //create new SnakeEgg, add to inventory
     void Kill(Player& P); //create new SnakeMeat, add to inventory
 

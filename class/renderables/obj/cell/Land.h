@@ -10,6 +10,9 @@ enum LAND_TYPE {
 };
 
 class Land : public Cell{
+	private:
+		bool grass; //kondisi apakah ada rumput atau tidak di land ini
+
 	public:
 		Land(); //ctor
 

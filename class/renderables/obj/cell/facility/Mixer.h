@@ -9,8 +9,6 @@ public:
 	Mixer(); //ctor
 	
 	FACILITY_TYPE facilityType(); //return an int representation of child class mixer
-	
-	void Interact(Player& P); //mengisi wadah air
 
 	char Render();		  //outputs char representation
 	void SetRender(char); //setter

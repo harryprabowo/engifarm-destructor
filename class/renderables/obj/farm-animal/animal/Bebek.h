@@ -10,7 +10,7 @@ public:
     Bebek();
     Bebek(int _x, int _y);
     // Berbicara dengan Player
-    void TalkWithPlayer();
+    void Talk();
     void Interact(Player& P); //create new DuckEgg, add to inventory
     void Kill(Player& P); //create new DuckMeat, add to inventory
 

@@ -9,7 +9,7 @@ public:
     Burung();
     Burung(int _x, int _y);
     // Berbicara dengan Player
-    void TalkWithPlayer();
+    void Talk();
     void Kill(Player& P); //create new BirdMeat, add to inventory
 
     char Render();        //outputs char representation

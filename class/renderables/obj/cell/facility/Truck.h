@@ -3,6 +3,8 @@
 
 #include "../Facility.h"
 
+const int cooldown;
+
 class Truck : public Facility
 {
 private:
@@ -11,8 +13,9 @@ public:
 	Truck(); //ctor
 
 	FACILITY_TYPE facilityType(); //return an int representation of child class truck
+	int cooldown(); //return cooldown tetap dari truck
 
-	void Interact(Player& P); //mengisi menjual semua product di inventori player jika tidak sedang cooldown
+	void Interact(Player& P); //menjual semua product di inventori player jika tidak sedang cooldown
 
 	char Render();		  //outputs char representation
 	void SetRender(char); //setter

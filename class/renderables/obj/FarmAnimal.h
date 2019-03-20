@@ -7,7 +7,7 @@
 class FarmAnimal : public Renderables {
 protected:
 	Cell& location;     // Pointer ke lokasi hewan
-	bool isHungry;        // Menandai hewan lapar(true) dan tidak lapar(false)
+	bool hungry;        // Menandai hewan lapar(true) dan tidak lapar(false)
 	int hungryTime;     // Menghitung waktu hewan ketika lapar
 	bool alive;         // State hewan hidup atau mati
 
@@ -27,7 +27,7 @@ public:
 
 	// Setter dan Getter
 	// Melihat State Hungry
-	bool GetHungry();
+	bool IsHungry();
 	// Melihat state Alive
 	bool GetAlive();
 	// Mendapatkan HungryTime
@@ -47,7 +47,7 @@ public:
 	void EatFood();
 
 	// Fungsi Talk dengan Player
-	virtual void TalkWithPlayer() = 0;
+	virtual void Talk() = 0;
 };
 
 #endif

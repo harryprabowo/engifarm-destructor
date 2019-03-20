@@ -11,8 +11,6 @@ enum FACILITY_TYPE {
 };
 
 class Facility : public Cell{
-	private:
-		const CELL_TYPE type;
 	public:
 		Facility(); //ctor
 

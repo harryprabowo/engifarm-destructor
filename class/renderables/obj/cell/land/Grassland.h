@@ -7,7 +7,7 @@ class Grassland : public Land{
 	public:
 		Grassland(); //ctor
 
-		LAND_TYPE landType(); //return an int representation of child class barn
+		LAND_TYPE landType(); //return an int representation of child class grassland
 
 		char Render();		  //outputs char representation
 		void SetRender(char); //setter
