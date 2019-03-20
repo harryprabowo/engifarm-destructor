@@ -47,7 +47,7 @@ void FarmAnimal::MoveY() {
 
 
 // Hungry
-bool FarmAnimal::GetHungry() {
+bool FarmAnimal::IsHungry() {
 	return Hungry;
 }
 
@@ -147,7 +147,7 @@ string MeatProducingFarmAnimal::Kill() {
 Ayam::Ayam(string nama) : FarmAnimal(nama), EggProducingFarmAnimal("ChickenEgg"), MeatProducingFarmAnimal("ChickenMeat") {}
 
 // Berbicara dengan Player
-void Ayam::TalkWithPlayer() {
+void Ayam::Talk() {
 	cout << "Petok!!" << endl;
 }
 
@@ -156,7 +156,7 @@ void Ayam::TalkWithPlayer() {
 Sapi::Sapi(string nama) : FarmAnimal(nama), MilkProducingFarmAnimal("CowMilk"), MeatProducingFarmAnimal("CowMeat") {}
 
 // Berbicara dengan Player
-void Sapi::TalkWithPlayer() {
+void Sapi::Talk() {
 	cout << "Moo!" << endl;
 }
 
@@ -165,7 +165,7 @@ void Sapi::TalkWithPlayer() {
 Kambing::Kambing(string nama) : FarmAnimal(nama), MilkProducingFarmAnimal("GoatMilk"), MeatProducingFarmAnimal("GoatMeat") {}
 
 // Berbicara dengan Player
-void Kambing::TalkWithPlayer() {
+void Kambing::Talk() {
 	cout << "Mbek!!" << endl;
 }
 
@@ -174,7 +174,7 @@ void Kambing::TalkWithPlayer() {
 Bebek::Bebek(string nama) : FarmAnimal(nama), EggProducingFarmAnimal("DuckEgg"), MeatProducingFarmAnimal("DuckMeat") {}
 
 // Berbicara dengan Player
-void Bebek::TalkWithPlayer() {
+void Bebek::Talk() {
 	cout << "Kwek!" << endl;
 }
 
@@ -183,7 +183,7 @@ void Bebek::TalkWithPlayer() {
 Burung::Burung(string nama) : FarmAnimal(nama), MeatProducingFarmAnimal("BirdMeat") {}
 
 // Berbicara dengan Player
-void Burung::TalkWithPlayer() {
+void Burung::Talk() {
 	cout << "Ciat!" << endl;
 }
 
@@ -192,6 +192,6 @@ void Burung::TalkWithPlayer() {
 Ular::Ular(string nama) : FarmAnimal(nama), EggProducingFarmAnimal("SnakeEgg"), MeatProducingFarmAnimal("SnakeMeat") {}
 
 // Berbicara dengan Player
-void Ular::TalkWithPlayer() {
+void Ular::Talk() {
 	cout << "Sshh..." << endl;
 }
