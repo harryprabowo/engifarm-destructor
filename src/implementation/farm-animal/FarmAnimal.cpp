@@ -1,197 +1,159 @@
-#include "../../class/farm-animal/FarmAnimal.h"
+#include "../../class/renderables/obj/FarmAnimal.h"
+#include <stdlib.h>
+#include <time.h>
 
-// *************************** FarmAnimal ***************************//
+
 // Konstruktor FarmAnimal
-FarmAnimal::FarmAnimal(string nama) : name(nama) {
-	X = 0;
-    Y = 0;
-    Hungry = false;
-    HungryTime = 0;
-}
-
-// Name
-string FarmAnimal::GetName() {
-	return name;
-}
-
-void FarmAnimal::SetName(string nama) {
-	name = nama;
+FarmAnimal::FarmAnimal(int _x, int _y) : Renderables(tuple<_x,_y>) {
+	// How to do Location(?)
+    hungry = false;
+    hungryTime = 0;
+	alive = true;
 }
 
 // Position
-int FarmAnimal::GetX() {
-	return X;
+Cell& FarmAnimal::GetLocation() {
+	return location;
 }
 
-int FarmAnimal::GetY() {
-	return Y;
+void FarmAnimal::RandomMove() {
+	srand(time(NULL));
+	int rnum = rand() % 4;
+
+	if (rnum==0) {
+		MoveUp();
+	} 
+	else if (rnum==1) {
+		MoveRight();
+	}
+	else if (rnum==2) {
+		MoveDown();
+	}
+	else {
+		MoveLeft();
+	}
 }
 
-void FarmAnimal::SetX(int _x) {
-	X = _x;
-}
-
-void FarmAnimal::SetY(int _y) {
-	Y = _y;
-}
-
-// Hewan bergerak berdasarkan sumbu X
-void FarmAnimal::MoveX() {
+void FarmAnimal::MoveUp() {
 	
 }
 
-// Hewan bergerak berdasarkan sumbu Y
-void FarmAnimal::MoveY() {
+void FarmAnimal::MoveDown() {
+	
+}
+
+void FarmAnimal::MoveLeft() {
+	
+}
+
+void FarmAnimal::MoveRight() {
 	
 }
 
 
-// Hungry
+// Setter dan Getter
+// Melihat State Hungry
 bool FarmAnimal::IsHungry() {
-	return Hungry;
+	return hungry;
 }
 
-// Mengecek hewan mati atau belum karena lapar
-bool FarmAnimal::Dead() {
-	if (HungryTime==5) {
-        return true;
-    }
-    return false;
+// Melihat state Alive
+bool FarmAnimal::IsAlive() {
+	return alive;
 }
 
-// Hewan makan makanan
+// Mendapatkan HungryTime
+int FarmAnimal::GetHungryTime() {
+	return hungryTime;
+}
+
+// Mengubah state Hungry hewan
+void FarmAnimal::SetHungry(bool state) {
+	hungry = state;
+}
+
+// Mengubah HungryTime
+void FarmAnimal::SetHungryTime(int time) {
+	hungryTime = time;
+}
+
+// Mengubah Alive
+void FarmAnimal::SetAlive(bool state) {
+	alive = state;
+}
+
+
+// Mengecek hewan mati atau belum karena lapar, kalau mati Alive = false
+void FarmAnimal::Dead() {
+	if (hungryTime==5) {
+		alive = false;
+	}
+}
+
+
+// Hewan makan rumput jika lapar dan berada pada Cell yang ditumbuhi rumput
+// Hewan yang memiliki FarmProduct akan berbeda jika makan
 void FarmAnimal::EatFood() {
-	// Eat
-    Hungry = false;
-    HungryTime = 0;
+	if (hungry) {
+		if (IsGrass()) {
+			setGrass(false);
+			hungry = false;
+			hungryTime = 0;
+		}
+	}
 }
 
-// *************************** EggProducingFarmAnimal ***************************//
-// Konstruktor EggProducingFarmAnimal
-EggProducingFarmAnimal::EggProducingFarmAnimal(string EggType) : Egg(EggType) {
-	FarmProductReady = false;
-}
+// // *************************** Types of Farm Animal ***************************//
+// // AYAM
+// // Konstruktor ayam dengan name = nama
+// Ayam::Ayam(string nama) : FarmAnimal(nama), EggProducingFarmAnimal("ChickenEgg"), MeatProducingFarmAnimal("ChickenMeat") {}
 
-// Egg
-string EggProducingFarmAnimal::GetEgg() {
-	return Egg;
-}
+// // Berbicara dengan Player
+// void Ayam::Talk() {
+// 	cout << "Petok!!" << endl;
+// }
 
-// FarmProductReady
-bool EggProducingFarmAnimal::GetFarmProductReady() {
-	return FarmProductReady;
-}
+// // Sapi
+// // Konstruktor sapi
+// Sapi::Sapi(string nama) : FarmAnimal(nama), MilkProducingFarmAnimal("CowMilk"), MeatProducingFarmAnimal("CowMeat") {}
 
-// Fungsi Interact dengan Player
-string EggProducingFarmAnimal::Interact() {
-	if (FarmProductReady) {
-        FarmProductReady = false;
-        return Egg;
-    }
-    return "NULL";
-}
+// // Berbicara dengan Player
+// void Sapi::Talk() {
+// 	cout << "Moo!" << endl;
+// }
 
-// *************************** MilkProducingFarmAnimal ***************************//
-// Konstruktor MilkProducingFarmAnimal
-MilkProducingFarmAnimal::MilkProducingFarmAnimal(string MilkType) : Milk(MilkType) {
-	FarmProductReady = false;
-}
+// // Kambing
+// // Konstruktor kambing
+// Kambing::Kambing(string nama) : FarmAnimal(nama), MilkProducingFarmAnimal("GoatMilk"), MeatProducingFarmAnimal("GoatMeat") {}
 
+// // Berbicara dengan Player
+// void Kambing::Talk() {
+// 	cout << "Mbek!!" << endl;
+// }
 
-// Milk
-string MilkProducingFarmAnimal::GetMilk() {
-	return Milk;
-}
+// // Bebek
+// // Konstruktor Bebek
+// Bebek::Bebek(string nama) : FarmAnimal(nama), EggProducingFarmAnimal("DuckEgg"), MeatProducingFarmAnimal("DuckMeat") {}
 
+// // Berbicara dengan Player
+// void Bebek::Talk() {
+// 	cout << "Kwek!" << endl;
+// }
 
-// FarmProductReady
-bool MilkProducingFarmAnimal::GetFarmProductReady() {
-	return FarmProductReady;
-}
+// // Burung
+// // Konstruktor Burung
+// Burung::Burung(string nama) : FarmAnimal(nama), MeatProducingFarmAnimal("BirdMeat") {}
 
-
-// Fungsi Interact dengan Player
-string MilkProducingFarmAnimal::Interact() {
-	if (FarmProductReady) {
-        FarmProductReady = false;
-        return Milk;
-    }
-    return "NULL";
-}
-
-// *************************** MeatProducingFarmAnimal ***************************//
-// Konstruktor MeatProducingFarmAnimal
-MeatProducingFarmAnimal::MeatProducingFarmAnimal(string MeatType) : Meat(MeatType) {
-    Alive = true;
-}
-
-// Meat
-string MeatProducingFarmAnimal::GetMeat() {
-	return Meat;
-}
-
-// Alive
-bool MeatProducingFarmAnimal::GetAlive() {
-    return Alive;
-}
-
-// Fungsi Kill oleh Player, menghasilkan nama daging
-string MeatProducingFarmAnimal::Kill() {
-	Alive = false;
-    return Meat;
-}
-
-// *************************** Types of Farm Animal ***************************//
-// AYAM
-// Konstruktor ayam dengan name = nama
-Ayam::Ayam(string nama) : FarmAnimal(nama), EggProducingFarmAnimal("ChickenEgg"), MeatProducingFarmAnimal("ChickenMeat") {}
-
-// Berbicara dengan Player
-void Ayam::Talk() {
-	cout << "Petok!!" << endl;
-}
-
-// Sapi
-// Konstruktor sapi
-Sapi::Sapi(string nama) : FarmAnimal(nama), MilkProducingFarmAnimal("CowMilk"), MeatProducingFarmAnimal("CowMeat") {}
-
-// Berbicara dengan Player
-void Sapi::Talk() {
-	cout << "Moo!" << endl;
-}
-
-// Kambing
-// Konstruktor kambing
-Kambing::Kambing(string nama) : FarmAnimal(nama), MilkProducingFarmAnimal("GoatMilk"), MeatProducingFarmAnimal("GoatMeat") {}
-
-// Berbicara dengan Player
-void Kambing::Talk() {
-	cout << "Mbek!!" << endl;
-}
-
-// Bebek
-// Konstruktor Bebek
-Bebek::Bebek(string nama) : FarmAnimal(nama), EggProducingFarmAnimal("DuckEgg"), MeatProducingFarmAnimal("DuckMeat") {}
-
-// Berbicara dengan Player
-void Bebek::Talk() {
-	cout << "Kwek!" << endl;
-}
-
-// Burung
-// Konstruktor Burung
-Burung::Burung(string nama) : FarmAnimal(nama), MeatProducingFarmAnimal("BirdMeat") {}
-
-// Berbicara dengan Player
-void Burung::Talk() {
-	cout << "Ciat!" << endl;
-}
+// // Berbicara dengan Player
+// void Burung::Talk() {
+// 	cout << "Ciat!" << endl;
+// }
 
 
-// Konstruktor ular
-Ular::Ular(string nama) : FarmAnimal(nama), EggProducingFarmAnimal("SnakeEgg"), MeatProducingFarmAnimal("SnakeMeat") {}
+// // Konstruktor ular
+// Ular::Ular(string nama) : FarmAnimal(nama), EggProducingFarmAnimal("SnakeEgg"), MeatProducingFarmAnimal("SnakeMeat") {}
 
-// Berbicara dengan Player
-void Ular::Talk() {
-	cout << "Sshh..." << endl;
-}
+// // Berbicara dengan Player
+// void Ular::Talk() {
+// 	cout << "Sshh..." << endl;
+// }

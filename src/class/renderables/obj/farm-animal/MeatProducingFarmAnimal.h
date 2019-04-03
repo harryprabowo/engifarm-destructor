@@ -9,7 +9,7 @@ public:
     MeatProducingFarmAnimal(int _x, int _y);
 
     // Fungsi Kill oleh Player menghasilkan nama daging
-    virtual void Kill(Player& P);
+    virtual void Kill(Player& P) = 0;
 };
 
 #endif

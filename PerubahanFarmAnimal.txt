@@ -1,0 +1,8 @@
+Perubahan kelas-kelas FarmAnimal dan turunannya:
+
+1. Method Interact dan Kill di Milk/Meat/EggProducingAnimal dijadiin full virtual.
+
+2. Semua nama variabel diawali huruf kecil.
+
+3. MilkProd dan EggProducingFarmAnimal memiliki konstruktor default saja, karena locationnya bisa dibuat di MeatProducingFarmAnimal.
+Bisa digagalkan kalau ada kelas hewan yg tidak termasuk MeatProd.

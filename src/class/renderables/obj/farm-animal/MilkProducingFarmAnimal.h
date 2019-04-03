@@ -5,11 +5,11 @@
 
 class MilkProducingFarmAnimal : public FarmAnimal {
 protected:
-    bool FarmProductReady;   // Hewan sudah memiliki FarmProduct atau belum
+    bool farmProductReady;   // Hewan sudah memiliki FarmProduct atau belum
 
 public:
     // Konstruktor MilkProducingFarmAnimal
-    MilkProducingFarmAnimal(int _x, int _y);
+    MilkProducingFarmAnimal();
 
     // Mendapatkan status FarmProductReady
     bool GetFarmProductReady();
@@ -20,7 +20,7 @@ public:
     void EatFood();
 
     // Fungsi Interact dengan Player
-    virtual void Interact(Player& P);
+    virtual void Interact(Player& P) = 0;
 };
 
 #endif

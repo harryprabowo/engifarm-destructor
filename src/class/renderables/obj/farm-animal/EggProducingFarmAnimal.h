@@ -5,7 +5,7 @@
 
 class EggProducingFarmAnimal : public FarmAnimal{
   protected:
-    bool FarmProductReady; // Hewan sudah memiliki FarmProduct atau belum
+    bool farmProductReady; // Hewan sudah memiliki FarmProduct atau belum
 
   public:
     // Konstruktor EggProducingFarmAnimal
@@ -20,7 +20,7 @@ class EggProducingFarmAnimal : public FarmAnimal{
     void EatFood();
 
     // Fungsi Interact dengan Player
-    virtual void Interact(Player &P);
+    virtual void Interact(Player &P) = 0;
 };
 
 #endif
