@@ -4,7 +4,7 @@ using namespace std;
 
 Well::Well(int x, int y) : Facility(x, y)
 {
-    
+    setRender('W');
 }
 
 int Well::interact()

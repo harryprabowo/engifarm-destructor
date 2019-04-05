@@ -7,6 +7,9 @@
 #include "../class/renderables/obj/cell/land/Barn.h"
 #include "../class/renderables/obj/cell/land/Coop.h"
 #include "../class/renderables/obj/cell/land/Grassland.h"
+#include "../class/renderables/obj/cell/facility/Mixer.h"
+#include "../class/renderables/obj/cell/facility/Well.h"
+#include "../class/renderables/obj/cell/facility/Truck.h"
 
 using namespace std;
 
@@ -61,25 +64,3 @@ void Map::print()
         else
             cout << " ";
     }
-}
-
-main()
-{
-    Map m;
-    Cell *c;
-    Grassland g(0, 0);
-    g.setGrass(false);
-    Coop coop(0, 1);
-    coop.setGrass(false);
-    Barn barn(0, 2);
-    barn.setGrass(false);
-
-    c = &g;
-    m.setObjectAt(c->getX(), c->getY(), c);
-    c = &coop;
-    m.setObjectAt(c->getX(), c->getY(), c);
-    c = &barn;
-    m.setObjectAt(c->getX(), c->getY(), c);
-
-    m.print();
-}
