@@ -8,8 +8,8 @@ class Facility : public Cell
   public:
     Facility(int, int);
 
-    virtual int interact();
-    virtual int mix();
+    virtual int interact() = 0;
+    virtual int mix() = 0;
 };
 
 #endif

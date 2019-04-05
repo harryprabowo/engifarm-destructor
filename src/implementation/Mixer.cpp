@@ -4,7 +4,7 @@ using namespace std;
 
 Mixer::Mixer(int x, int y) : Facility(x, y)
 {
-
+    setRender('M');
 }
 
 int Mixer::interact() {

@@ -7,6 +7,9 @@
 #include "../class/renderables/obj/cell/land/Barn.h"
 #include "../class/renderables/obj/cell/land/Coop.h"
 #include "../class/renderables/obj/cell/land/Grassland.h"
+#include "../class/renderables/obj/cell/facility/Mixer.h"
+#include "../class/renderables/obj/cell/facility/Well.h"
+#include "../class/renderables/obj/cell/facility/Truck.h"
 
 using namespace std;
 
@@ -61,4 +64,3 @@ void Map::print()
         else
             cout << " ";
     }
-}

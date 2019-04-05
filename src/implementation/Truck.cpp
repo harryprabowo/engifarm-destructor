@@ -4,6 +4,7 @@ using namespace std;
 
 Truck::Truck(int x, int y) : Facility(x, y)
 {
+    setRender('T');
 }
 
 void Truck::cooldown()
@@ -13,7 +14,7 @@ void Truck::cooldown()
 
 int Truck::interact()
 {
-    if (cooldown == 0)
+    if (lastUsed == 0)
         return 2;
     else
         return -1;    
