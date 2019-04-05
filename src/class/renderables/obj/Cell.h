@@ -10,11 +10,13 @@ public:
   /* Getter */
   int getX(); // returns cell position in map
   int getY();
+  Renderables* getRenderable();
+  void setRenderable();
 
 private:
   int x; // given by map
   int y;
-  Renderables r;
+  Renderables* r;
 };
 
 #endif

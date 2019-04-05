@@ -14,7 +14,7 @@ class Player
 {
   public:
 	/* Constructor */
-	Player(string); // call map constructor as well
+	Player(Map m); // call map constructor as well
 	/* Destructor */
 	~Player();
 
@@ -26,7 +26,6 @@ class Player
 	const Map<Renderables> &getMap() const;
 
 	/* Setters */
-	void setName(string);
 	void setBottle(int);
 
 	/* Methods concerning processTick() */

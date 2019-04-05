@@ -29,10 +29,12 @@ bool Map::isEmptyAt(int x, int y)
 // getter - can access abstract properties only
 Cell *Map::getObjectAt(int x, int y)
 {
-    if(x >= 0 && y >= 0 && x < m_mapWidth && y < m_mapHeight)
+    if(x >= 0 && y >= 0 && x < m_mapWidth && y < m_mapHeight && m_mapArray[x * m_mapWidth + y].getRenderable()!=NULL){
         return m_mapArray[x * m_mapWidth + y];
-    else 
+    }
+    else {
         return NULL;
+    }
 }
 
 // setter
