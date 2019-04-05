@@ -5,7 +5,6 @@
 #include "Player.h"
 
 class SideProduct : public Product{
-public:
-	SideProduct();
+	
 };
 #endif

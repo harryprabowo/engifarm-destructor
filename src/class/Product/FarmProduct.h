@@ -4,5 +4,6 @@
 #include "Product.h"
 
 class FarmProduct : public Product{
+	
 };
 #endif

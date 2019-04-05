@@ -10,9 +10,8 @@ class Truck : public Facility
 private:
 	int lastUsed; //mengecek tick terakhir saat truck digunakan. untuk mengecek apa truck cooldown
 public:
-	Truck(); //ctor
+	Truck(int, int); //ctor
 
-	FACILITY_TYPE facilityType(); //return an int representation of child class truck
 	int cooldown(); //return cooldown tetap dari truck
 
 	void Interact(Player& P); //menjual semua product di inventori player jika tidak sedang cooldown

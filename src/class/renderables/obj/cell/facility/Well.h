@@ -6,9 +6,7 @@
 class Well : public Facility
 {
 public:
-	Well(); //ctor
-
-	FACILITY_TYPE facilityType(); //return an int representation of child class well
+	Well(int, int); //ctor
 
 	void Interact(Player& P); //mengisi wadah air
 
