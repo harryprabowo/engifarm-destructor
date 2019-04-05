@@ -8,7 +8,7 @@ Player::Player(Map m){
 	tick = 0;
 	bottle = 10;
 	location = m.getObjectAt(1,1);
-	vector<Product> v;
+	vector<Product*> v;
 	inventory = v;
 }
 
@@ -24,7 +24,7 @@ Cell* Player::getLocation(){
 	return location;
 }
 
-vector<Product> Player::getInventory(){
+vector<Product*> Player::getInventory(){
 	return inventory;
 }
 
@@ -100,7 +100,38 @@ void Player::mix(FarmProduct &, FarmProduct &){
 }
 
 void Player::interact(Facility){
-
+	bool animal = false;
+	Renderables r_top = map->getObjectAt(location->getX(),location->getY()+1)->getRenderable();
+	Renderables r_bot = map->getObjectAt(location->getX(),location->getY()-1)->getRenderable();
+	Renderables r_rig = map->getObjectAt(location->getX()+1,location->getY())->getRenderable();
+	Renderables r_lef = map->getObjectAt(location->getX()-1,location->getY())->getRenderable();
+	if(r_top!= NULL){
+		if(FarmAnimal* fa = dynamic_cast<FarmAnimal*>(r_top)){
+			Product* p = fa->interact(); animal = true;
+			if(p!= null){inventory.push_back(p);}
+		}
+	}
+	else if(r_rig!= NULL){
+		if(FarmAnimal* fa = dynamic_cast<FarmAnimal*>(r_top)){
+			Product* p = fa->interact(); animal = true;
+			if(p!= null){inventory.push_back(p);}
+		}
+	}
+	else if(r_bot!= NULL){
+		if(FarmAnimal* fa = dynamic_cast<FarmAnimal*>(r_top)){
+			Product* p = fa->interact(); animal = true;
+			if(p!= null){inventory.push_back(p);}
+		}
+	}
+	else if(r_bot!= NULL){
+		if(FarmAnimal* fa = dynamic_cast<FarmAnimal*>(r_top)){
+			Product* p = fa->interact(); animal = true;
+			if(p!= null){inventory.push_back(p);}
+		}
+	}
+	if(!animal){
+		cout << "No animal to talk to" << endl;
+	}
 }
 
 void Player::interact(FarmAnimal){
@@ -111,23 +142,26 @@ void Player::interact(FarmAnimal){
 	Renderables r_lef = map->getObjectAt(location->getX()-1,location->getY())->getRenderable();
 	if(r_top!= NULL){
 		if(FarmAnimal* fa = dynamic_cast<FarmAnimal*>(r_top)){
-			Product p = fa->interact(); animal = true;
+			Product* p = fa->interact(); animal = true;
+			if(p!= null){inventory.push_back(p);}
 		}
 	}
 	else if(r_rig!= NULL){
 		if(FarmAnimal* fa = dynamic_cast<FarmAnimal*>(r_top)){
-			Product p = fa->interact(); animal = true;
+			Product* p = fa->interact(); animal = true;
+			if(p!= null){inventory.push_back(p);}
 		}
 	}
 	else if(r_bot!= NULL){
 		if(FarmAnimal* fa = dynamic_cast<FarmAnimal*>(r_top)){
-			Product p = fa->interact(); animal = true;
-			if(p != NULL)
+			Product* p = fa->interact(); animal = true;
+			if(p!= null){inventory.push_back(p);}
 		}
 	}
 	else if(r_bot!= NULL){
 		if(FarmAnimal* fa = dynamic_cast<FarmAnimal*>(r_top)){
-			Product p = fa->interact(); animal = true;
+			Product* p = fa->interact(); animal = true;
+			if(p!= null){inventory.push_back(p);}
 		}
 	}
 	if(!animal){
@@ -136,9 +170,45 @@ void Player::interact(FarmAnimal){
 }
 
 void Player::kill(){
-
+	bool animal = false;
+	Renderables r_top = map->getObjectAt(location->getX(),location->getY()+1)->getRenderable();
+	Renderables r_bot = map->getObjectAt(location->getX(),location->getY()-1)->getRenderable();
+	Renderables r_rig = map->getObjectAt(location->getX()+1,location->getY())->getRenderable();
+	Renderables r_lef = map->getObjectAt(location->getX()-1,location->getY())->getRenderable();
+	if(r_top!= NULL){
+		if(FarmAnimal* fa = dynamic_cast<FarmAnimal*>(r_top)){
+			Product* p = fa->kill(); animal = true;
+			if(p!= null){inventory.push_back(p);}
+		}
+	}
+	else if(r_rig!= NULL){
+		if(FarmAnimal* fa = dynamic_cast<FarmAnimal*>(r_top)){
+			Product* p = fa->kill(); animal = true;
+			if(p!= null){inventory.push_back(p);}
+		}
+	}
+	else if(r_bot!= NULL){
+		if(FarmAnimal* fa = dynamic_cast<FarmAnimal*>(r_top)){
+			Product* p = fa->kill(); animal = true;
+			if(p!= null){inventory.push_back(p);}
+		}
+	}
+	else if(r_bot!= NULL){
+		if(FarmAnimal* fa = dynamic_cast<FarmAnimal*>(r_top)){
+			Product* p = fa->kill(); animal = true;
+			if(p!= null){inventory.push_back(p);}
+		}
+	}
+	if(!animal){
+		cout << "No animal to talk to" << endl;
+	}
 }
 
 void Player::grow(){
-
+	if(!bottle && !location->hasGrass()){
+		if(Land* cell = dynamic_cast<Land*>(location)){
+			bottle--;
+			location->setGrass(true);
+		}
+	}
 }
