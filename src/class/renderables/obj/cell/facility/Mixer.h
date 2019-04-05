@@ -9,8 +9,7 @@ class Mixer : public Facility
 	/* Constructor */
 	Mixer(int, int); // generate at hardcoded cell pos
 
-	char Render();		  //outputs char representation
-	void SetRender(char); //setter
+	void mix();
 };
 
 #endif

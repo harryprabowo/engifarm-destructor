@@ -14,9 +14,6 @@ public:
 
 	int cooldown(); //return cooldown tetap dari truck
 
-	void Interact(Player& P); //menjual semua product di inventori player jika tidak sedang cooldown
-
-	char Render();		  //outputs char representation
-	void SetRender(char); //setter
+	void interact();
 };
 #endif
