@@ -39,7 +39,7 @@ class Player
 	void moveLeft();
 	void moveRight();
 	void talk(); // talk to animal
-	void mix(FarmProduct &, FarmProduct &);
+	void mix(string,string);
 	void interact(Facility);
 	void interact(FarmAnimal);
 	void kill();
@@ -55,6 +55,8 @@ class Player
 	vector<Product*> inventory;
 
 	void processTick();
+	FarmProduct& searchInInvent(std::string p);
+	int searchInInventPos(string p);
 	/*
 		dipanggil setiap aksi :
 		- move
