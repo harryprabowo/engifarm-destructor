@@ -4,6 +4,7 @@
 #include "../EggProducingFarmAnimal.h"
 #include "../MeatProducingFarmAnimal.h"
 #include "../../../../Product/farm-product/ChickenMeat.h"
+#include "../../../../Product/farm-product/ChickenEgg.h"
 
 class Ayam : public EggProducingFarmAnimal, public MeatProducingFarmAnimal
 {
@@ -14,8 +15,8 @@ class Ayam : public EggProducingFarmAnimal, public MeatProducingFarmAnimal
     /* Overrides */
     void eatFood();
     void talk();
-    Product interact();
-    Product kill();
+    Product* interact();
+    Product* kill();
 };
 
 #endif

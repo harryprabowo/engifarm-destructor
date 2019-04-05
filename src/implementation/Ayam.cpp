@@ -9,19 +9,23 @@ Ayam::Ayam(){
 }
 
 void Ayam::eatFood(){
-
+	if(egg = NULL){
+		egg = new ChickenEgg();
+	}
 }
 
 void Ayam::talk(){
 	cout << "Something" << endl;
 }
 
-Product Ayam::interact(){
-	
+Product* Ayam::interact(){
+	Product* res = egg;
+	egg = NULL;
+	return res;
 }
 
-Product Ayam::kill(){
+Product* Ayam::kill(){
 	ChickenMeat cm;
 	Product *p = &cm;
-	return *p;
+	return p;
 }

@@ -13,8 +13,8 @@ class Ular : public EggProducingFarmAnimal, public MeatProducingFarmAnimal
     /* Overrides */
     void eatFood();
     void talk();
-    Product interact();
-    Product kill();
+    Product* interact();
+    Product* kill();
 };
 
 #endif
