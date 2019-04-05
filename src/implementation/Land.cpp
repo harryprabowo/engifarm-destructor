@@ -3,19 +3,11 @@
 using namespace std;
 
 /* Getters */
-CELL_TYPE cellType()
-{
-    return LAND;
-}
-
-/* Methods */
-//void grow(Player &P);
-bool isGrass()
-{
+bool isGrass(){
     return grass;
 }
 
-void setGrass(bool);
-
-/* Virtuals */
-virtual LAND_TYPE landType() = 0; //meng
+/* Methods */
+void setGrass(bool b){
+	grass = b;
+}
