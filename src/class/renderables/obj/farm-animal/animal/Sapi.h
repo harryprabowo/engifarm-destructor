@@ -7,9 +7,6 @@
 class Sapi : public MilkProducingFarmAnimal, public MeatProducingFarmAnimal
 {
   public:
-    /* Constructor */
-    Sapi(); // generate at random cell, set representation
-
     /* Overrides */
     void eatFood();
     void talk();

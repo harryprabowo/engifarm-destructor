@@ -3,11 +3,6 @@
 
 using namespace std;
 
-Sapi::Sapi(){
-	hungry = false;
-	hungryDuration = 0;
-}
-
 void Sapi::eatFood(){
 	if(milk = NULL){
 		milk = new CowMilk();

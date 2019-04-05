@@ -9,9 +9,6 @@
 class Ayam : public EggProducingFarmAnimal, public MeatProducingFarmAnimal
 {
   public:
-    /* Constructor */
-    Ayam(); // generate at random cell, set representation
-
     /* Overrides */
     void eatFood();
     void talk();

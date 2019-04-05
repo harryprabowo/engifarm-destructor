@@ -3,11 +3,6 @@
 
 using namespace std;
 
-Ular::Ular(){
-	hungry = false;
-	hungryDuration = 0;
-}
-
 void Ular::eatFood(){
 	if(egg = NULL){
 		egg = new SnakeEgg();

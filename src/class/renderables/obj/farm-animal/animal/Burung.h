@@ -6,9 +6,6 @@
 class Burung : public MeatProducingFarmAnimal
 {
   public:
-    /* Constructor */
-    Burung(); // generate at random cell, set representation
-
     /* Overrides */
     void eatFood();
     void talk();

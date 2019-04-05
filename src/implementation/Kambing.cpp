@@ -3,11 +3,6 @@
 
 using namespace std;
 
-Kambing::Kambing(){
-	hungry = false;
-	hungryDuration = 0;
-}
-
 void Kambing::eatFood(){
 	if(milk = NULL){
 		milk = new GoatMilk();

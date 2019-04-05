@@ -7,9 +7,6 @@
 class Ular : public EggProducingFarmAnimal, public MeatProducingFarmAnimal
 {
   public:
-    /* Constructor */
-    Ular(); // generate at random cell, set representation
-
     /* Overrides */
     void eatFood();
     void talk();

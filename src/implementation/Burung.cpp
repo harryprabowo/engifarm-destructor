@@ -3,11 +3,6 @@
 
 using namespace std;
 
-Burung::Burung(){
-	hungry = false;
-	hungryDuration = 0;
-}
-
 void Burung::eatFood(){}
 
 void Burung::talk(){

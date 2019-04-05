@@ -3,11 +3,6 @@
 
 using namespace std;
 
-Bebek::Bebek(){
-	hungry = false;
-	hungryDuration = 0;
-}
-
 void Bebek::eatFood(){
 	if(egg = NULL){
 		egg = new DuckEgg();

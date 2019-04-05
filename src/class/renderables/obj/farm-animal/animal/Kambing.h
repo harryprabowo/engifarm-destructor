@@ -7,9 +7,6 @@
 class Kambing : public MilkProducingFarmAnimal, public MeatProducingFarmAnimal
 {
   public:
-    /* Constructor */
-    Kambing(); // generate at random cell, set representation
-
     /* Overrides */
     void eatFood();
     void talk();

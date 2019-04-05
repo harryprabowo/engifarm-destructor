@@ -3,7 +3,7 @@
 
 #include "../Facility.h"
 
-#define COOL_DOWN 1
+#define COOL_DOWN 5
 
 class Truck : public Facility
 {

@@ -7,9 +7,6 @@
 class Bebek : public EggProducingFarmAnimal, public MeatProducingFarmAnimal
 {
   public:
-    /* Constructor */
-    Bebek(); // generate at random cell, set representation
-
     /* Overrides */
     void eatFood();
     void talk();
