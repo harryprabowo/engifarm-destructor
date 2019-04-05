@@ -2,7 +2,7 @@
 
 using namespace std;
 
-Grassland::Grassland()
+Grassland::Grassland(int x, int y):Cell(x, y)
 {
     setRender('*');
-} // generate at random cell, set representation
+}

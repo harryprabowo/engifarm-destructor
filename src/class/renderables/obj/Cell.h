@@ -12,8 +12,8 @@ public:
   int getY();
 
 private:
-  const int x; // given by map
-  const int y;
+  int x; // given by map
+  int y;
   Renderables r;
 };
 
