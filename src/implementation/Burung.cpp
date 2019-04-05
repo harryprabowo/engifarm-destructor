@@ -8,20 +8,14 @@ Burung::Burung(){
 	hungryDuration = 0;
 }
 
-void Burung::eatFood(){
-
-}
+void Burung::eatFood(){}
 
 void Burung::talk(){
 	cout << "Chirp.." << endl;
 }
 
-Product Burung::interact(){
-	
-}
-
-Product Burung::kill(){
+Product* Burung::kill(){
 	BirdMeat bm;
 	Product *p = &bm;
-	return *p;
+	return p;
 }

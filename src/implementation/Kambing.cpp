@@ -9,19 +9,23 @@ Kambing::Kambing(){
 }
 
 void Kambing::eatFood(){
-
+	if(milk = NULL){
+		milk = new GoatMilk();
+	}
 }
 
 void Kambing::talk(){
-	cout << "Mbek..." << endl;
+	cout << "Mbek.." << endl;
 }
 
-Product Kambing::interact(){
-	
+Product* Kambing::interact(){
+	Product* res = milk;
+	milk = NULL;
+	return res;
 }
 
-Product Kambing::kill(){
+Product* Kambing::kill(){
 	GoatMeat gm;
 	Product *p = &gm;
-	return *p;
+	return p;
 }

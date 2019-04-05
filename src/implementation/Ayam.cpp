@@ -15,7 +15,7 @@ void Ayam::eatFood(){
 }
 
 void Ayam::talk(){
-	cout << "Something" << endl;
+	cout << "Petok.." << endl;
 }
 
 Product* Ayam::interact(){
