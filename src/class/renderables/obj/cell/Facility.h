@@ -17,7 +17,7 @@ public:
 	CELL_TYPE cellType(); //return an int representation of child class facility
 
 	/* Virtuals */
-	virtual int facilityType() = 0; //mengembalikan jenis facility
+	virtual FACILITY_TYPE facilityType() = 0; //mengembalikan jenis facility
 
 protected:
 	CELL_TYPE cellType;

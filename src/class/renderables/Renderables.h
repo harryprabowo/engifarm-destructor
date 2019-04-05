@@ -3,7 +3,7 @@
 
 using namespace std;
 
-class Renderables // ABC
+class Renderables
 {
     public:
         char render(); //outputs char representation

@@ -6,8 +6,9 @@
 class Grassland : public Land
 {
   public:
-	Grassland(); // generate at random cell, set representation
+		Grassland(); // generate at random cell, set representation
 
-	LAND_TYPE landType(); //return an int representation of child class grassland
+		LAND_TYPE landType(); //return an int representation of child class grassland
 };
+
 #endif
