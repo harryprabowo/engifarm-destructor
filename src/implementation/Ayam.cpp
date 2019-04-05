@@ -5,8 +5,11 @@ using namespace std;
 
 Ayam::Ayam(){
 	hungry = false;
-	*cell = nullptr;
 	hungryDuration = 0;
+}
+
+void Ayam::setCell(Cell* c){
+	cell = c;
 }
 
 void Ayam::eatFood(){

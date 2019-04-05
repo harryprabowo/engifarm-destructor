@@ -14,6 +14,7 @@ class FarmAnimal : public Renderables //ABC
 
 	void setHungry(bool);
 	void setHungryTime(int);
+	void setCell(Cell*);
 
 	/* Position-related methods - Setter for &cell */
 	void move();		 //random move
