@@ -5,11 +5,12 @@
 
 class Mixer : public Facility
 {
-  public:
+public:
 	/* Constructor */
 	Mixer(int, int); // generate at hardcoded cell pos
 
-	void mix();
+	int interact();
+	int mix();
 };
 
 #endif

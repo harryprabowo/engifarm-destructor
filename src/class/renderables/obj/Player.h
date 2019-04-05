@@ -27,7 +27,7 @@ class Player
 	int getBottle();
 	int getTick();
 	Cell* getLocation();
-	vector<Product> getInventory();
+	vector<Product*> getInventory();
 	Map* getMap();
 
 	/* Setters */
@@ -50,8 +50,9 @@ class Player
 
 	static int tick; // menghitung jumlah aksi yang dilalui
 	int bottle;
+	int money;
 	Cell *location;
-	vector<Product> inventory;
+	vector<Product*> inventory;
 
 	void processTick();
 	/*

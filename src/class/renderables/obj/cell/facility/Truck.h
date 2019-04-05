@@ -14,6 +14,7 @@ public:
 
 	int cooldown(); //return cooldown tetap dari truck
 
-	void interact();
+	int interact();
+	int mix();
 };
 #endif
