@@ -8,7 +8,7 @@ class FarmAnimal : public Renderables //ABC
 {
   public:
 	/* Getters & setters */
-	Cell &getCell(); //returns container cell
+	Cell* getCell(); //returns container cell
 	bool isHungry();
 	int getHungryDuration();
 
