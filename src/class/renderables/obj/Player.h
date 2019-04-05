@@ -4,9 +4,9 @@
 #include <string>
 #include <vector>
 
-#include "cell/Cell.h"
-#include "../product/Product.h"
-#include "../map/Map.h"
+#include "Cell.h"
+#include "../../Product/Product.h"
+#include "../../map/Map.h"
 
 using namespace std;
 
