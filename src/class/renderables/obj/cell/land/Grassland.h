@@ -6,7 +6,7 @@
 class Grassland : public Land
 {
   public:
-		Grassland(); // generate at random cell, set representation
+		Grassland(int, int); // generate at random cell, set representation
 };
 
 #endif

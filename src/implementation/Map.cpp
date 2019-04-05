@@ -2,7 +2,10 @@
 #include <stddef.h>
 
 #include "../class/map/Map.h"
+
+// erase
 #include "../class/renderables/obj/cell/land/Grassland.h"
+#include "../class/renderables/obj/cell/land/Coop.h"
 
 using namespace std;
 
@@ -41,7 +44,7 @@ void Map::print()
     for (int i = 0; i < m_mapWidth * m_mapHeight; ++i)
     {
         if (m_mapArray[i] == NULL)
-            cout << "-";
+            cout << ".";
         else
             cout << m_mapArray[i]->render();
 
@@ -56,10 +59,12 @@ main()
 {
     Map m;
     Cell *c;
-    Grassland g;
+    Grassland g(0,0);
+    Coop c(0,1);
     c = &g;
 
     m.setObjectAt(0, 0, c);
+
 
     m.print();
 }

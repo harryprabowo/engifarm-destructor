@@ -2,6 +2,7 @@
 #define MILK_PRODUCING_FARMANIMAL_H
 
 #include "../FarmAnimal.h"
+#include "../../../Product/FarmProduct.h"
 
 class MilkProducingFarmAnimal : public FarmAnimal //ABC
 {
