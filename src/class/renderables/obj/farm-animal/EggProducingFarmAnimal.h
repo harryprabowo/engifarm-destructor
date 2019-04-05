@@ -2,20 +2,17 @@
 #define EGG_PRODUCING_FARMANIMAL_H
 
 #include "../FarmAnimal.h"
+#include "../../../Product/FarmProduct.h"
 
 class EggProducingFarmAnimal : public FarmAnimal // ABC
 {
 protected:
-  bool farmProductReady; // Hewan sudah memiliki FarmProduct atau belum
+  FarmProduct *egg;
 
 public:
-  /* Getters & setters */
-  bool hasFarmProductReady();
-  void setFarmProductReady(bool);
-
-  /* Overrides */
-  void eatFood();
-  Product interact();
+  virtual void eatFood();
+  virtual void talk();
+  virtual Product interact();
 };
 
 #endif
