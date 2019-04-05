@@ -10,7 +10,5 @@ class DuckMeat : public FarmProduct
 public:
 	DuckMeat();
 	//set price dari Product ini
-
-	FARMPRODUCT_TYPE farmProductType(); //mengembalikan identifier dari produk ini
 };
 #endif
