@@ -7,6 +7,8 @@
 class FarmAnimal : public Renderables //ABC
 {
 public:
+	FarmAnimal();
+	
 	/* Getters & setters */
 	Cell *getCell(); //returns container cell
 	bool isHungry();

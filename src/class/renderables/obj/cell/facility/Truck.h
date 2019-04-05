@@ -3,7 +3,7 @@
 
 #include "../Facility.h"
 
-const int cooldown;
+#define COOL_DOWN 1
 
 class Truck : public Facility
 {
@@ -12,7 +12,7 @@ private:
 public:
 	Truck(int, int); //ctor
 
-	int cooldown(); //return cooldown tetap dari truck
+	void cooldown(); //return cooldown tetap dari truck
 
 	int interact();
 	int mix();

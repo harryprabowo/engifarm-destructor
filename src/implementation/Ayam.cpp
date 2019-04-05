@@ -3,11 +3,6 @@
 
 using namespace std;
 
-Ayam::Ayam(){
-	hungry = false;
-	hungryDuration = 0;
-}
-
 void Ayam::eatFood(){
 	if(egg = NULL){
 		egg = new ChickenEgg();

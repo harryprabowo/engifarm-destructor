@@ -3,8 +3,10 @@
 
 #include "../Cell.h"
 
-class Facility : public Cell{
-    Facility(int,int);
+class Facility : public Cell
+{
+  public:
+    Facility(int, int);
 
     virtual int interact();
     virtual int mix();
