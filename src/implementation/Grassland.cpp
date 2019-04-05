@@ -4,5 +4,16 @@ using namespace std;
 
 Grassland::Grassland(int x, int y) : Land(x, y)
 {
-    setRender('*');
+	if (grass)
+		setRender('@');
+	else
+    	setRender('x');
+}
+
+void Grassland::setGrass(bool b){
+	Land::setGrass(b);
+	if(b)
+		setRender('@');
+	else
+		setRender('*');
 }

@@ -8,6 +8,7 @@ class Barn : public Land
   public:
 	/* Constructor */
 	Barn(); // generate at random cell, set representation
+	void setGrass(bool); //setter grass
 };
 
 #endif
