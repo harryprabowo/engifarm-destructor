@@ -5,6 +5,11 @@ using namespace std;
 
 #define HUNGRY_DURATION 5
 
+FarmAnimal::FarmAnimal() {
+	hungry = false;
+	hungryDuration = 0;
+}
+
 // Move dan Eat belum implementasi
 
 /* Getters & setters */
