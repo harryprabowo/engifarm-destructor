@@ -4,7 +4,7 @@ using namespace std;
 
 Land::Land(int x, int y) : Cell(x,y)
 {
-
+	grass = true;
 }
 
 /* Getters */

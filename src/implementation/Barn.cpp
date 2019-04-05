@@ -2,7 +2,7 @@
 
 using namespace std;
 
-Barn::Barn(int x, int y):Cell(x, y)
+Barn::Barn(int x, int y):Land(x, y)
 {
     setRender('x');
 }

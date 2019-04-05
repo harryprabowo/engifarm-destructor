@@ -2,7 +2,7 @@
 
 using namespace std;
 
-Coop::Coop(int x, int y):Cell(x, y)
+Coop::Coop(int x, int y):Land(x, y)
 {
     setRender('o');
 }

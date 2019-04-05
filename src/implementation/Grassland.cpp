@@ -4,6 +4,5 @@ using namespace std;
 
 Grassland::Grassland(int x, int y) : Land(x, y)
 {
-
     setRender('*');
 }
