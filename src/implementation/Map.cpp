@@ -4,8 +4,9 @@
 #include "../class/map/Map.h"
 
 // erase
-#include "../class/renderables/obj/cell/land/Grassland.h"
+#include "../class/renderables/obj/cell/land/Barn.h"
 #include "../class/renderables/obj/cell/land/Coop.h"
+#include "../class/renderables/obj/cell/land/Grassland.h"
 
 using namespace std;
 
@@ -29,10 +30,12 @@ bool Map::isEmptyAt(int x, int y)
 // getter - can access abstract properties only
 Cell *Map::getObjectAt(int x, int y)
 {
-    if(x >= 0 && y >= 0 && x < m_mapWidth && y < m_mapHeight && m_mapArray[x * m_mapWidth + y]->getRenderable()!=NULL){
+    if (x >= 0 && y >= 0 && x < m_mapWidth && y < m_mapHeight && m_mapArray[x * m_mapWidth + y]->getRenderable() != NULL)
+    {
         return m_mapArray[x * m_mapWidth + y];
     }
-    else {
+    else
+    {
         return NULL;
     }
 }
@@ -64,8 +67,19 @@ main()
 {
     Map m;
     Cell *c;
-    Grassland g(0,0);
-    Coop coop(0,1);
+    Grassland g(0, 0);
+    g.setGrass(false);
+    Coop coop(0, 1);
+    coop.setGrass(false);
+    Barn barn(0, 2);
+    barn.setGrass(false);
+
+    c = &g;
+    m.setObjectAt(c->getX(), c->getY(), c);
+    c = &coop;
+    m.setObjectAt(c->getX(), c->getY(), c);
+    c = &barn;
+    m.setObjectAt(c->getX(), c->getY(), c);
 
     m.print();
 }
