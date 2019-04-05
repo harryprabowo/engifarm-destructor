@@ -1,4 +1,7 @@
 #include "../class/renderables/obj/FarmAnimal.h"
+#include <stddef.h>
+
+using namespace std;
 
 // Move dan Eat belum implementasi
 
@@ -60,7 +63,11 @@ void FarmAnimal::talk() {}
 // talk with player
 
 Product FarmAnimal::interact() {
-	return NULL;
+	Product p, *q = &p;
+
+	q = NULL;
+	
+	return p;
 }
 // interact oleh player menghasilkan product - NULL default
 
