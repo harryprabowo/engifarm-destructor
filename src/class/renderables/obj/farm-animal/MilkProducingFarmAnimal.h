@@ -5,17 +5,14 @@
 
 class MilkProducingFarmAnimal : public FarmAnimal //ABC
 {
-  protected:
-    bool farmProductReady; // Hewan sudah memiliki FarmProduct atau belum
+protected:
+  FarmProduct *milk;
 
   public:
-    /* Getters & setters */
-    bool hasFarmProductReady();
-    void setFarmProductReady(bool);
-
-    /* Overrides */
-    void eatFood();
-    Product interact();
+  virtual void eatFood();
+  virtual void talk();
+  virtual Product interact();
+  
 };
 
 #endif

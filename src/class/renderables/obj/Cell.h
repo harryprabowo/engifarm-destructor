@@ -3,13 +3,7 @@
 
 #include "../Renderables.h"
 
-enum CELL_TYPE
-{
-  FACILITY,
-  LAND
-};
-
-class Cell : public Renderables
+class Cell : public Renderables // ABC
 {
 public:
   Cell(int, int);

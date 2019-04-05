@@ -5,7 +5,7 @@
 
 class MeatProducingFarmAnimal : public FarmAnimal // ABC
 {
-    Product kill();
+    virtual Product kill();
 };
 
 #endif

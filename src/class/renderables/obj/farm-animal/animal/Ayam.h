@@ -3,6 +3,7 @@
 
 #include "../EggProducingFarmAnimal.h"
 #include "../MeatProducingFarmAnimal.h"
+#include "../../../../Product/farm-product/ChickenMeat.h"
 
 class Ayam : public EggProducingFarmAnimal, public MeatProducingFarmAnimal
 {
@@ -11,7 +12,10 @@ class Ayam : public EggProducingFarmAnimal, public MeatProducingFarmAnimal
     Ayam(); // generate at random cell, set representation
 
     /* Overrides */
+    void eatFood();
     void talk();
+    Product interact();
+    Product kill();
 };
 
 #endif
