@@ -4,6 +4,7 @@
 //#include generic parent template
 #include <tuple>
 #include "linkedlist/Node.h"
+#
 
 using namespace std;
 
@@ -13,12 +14,10 @@ using namespace std;
 template<class T>
 class Map
 {
-  friend class Table;
-
   private:
     const short m_mapWidth;
     const short m_mapHeight;
-    Node<T> *m_mapArray; // parent type object undefined!
+    vector<shared_ptr<Renderables>> m_mapArray;
 
   public:
     // default constructor - create new file from empty template
@@ -27,18 +26,12 @@ class Map
     // constructor with map ID parameter
     Map(int map_id);
 
-    // copy constructor
-    Map(const Map &M);
-
     // destructor - creates temp. savefile
     ~Map();
-    
-    // assignment operator overloading
-    Map& operator=(const Map &M);
 
     /* ------------------------------METHODS------------------------------ */
     // returns TRUE if (x,y) is empty, else FALSE
-    bool isEmpty(int x, int y);
+    bool isEmptyAt(int x, int y);
 
     // getter - can access abstract properties only
     // if is empty, throw ObjectNotFound exception
@@ -59,5 +52,7 @@ class Map
     // writes map to textfile
     Node<T> exportMap(ofstream &file);
 };
+
+#include "../../implementation/Map.cpp"
 
 #endif

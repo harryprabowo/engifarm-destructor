@@ -1,26 +1,57 @@
-#ifndef _PLAYER_H
-#define _PLAYER_H
+#ifndef PLAYER_H
+#define PLAYER_H
 
 #include <string>
 #include <vector>
-#include <iterator>
-#include "cell/Land.h"
-#include "cell/Facility.h"
+
+#include "cell/Cell.h"
 #include "../product/Product.h"
-#include "../product/FarmProduct.h"
 #include "../map/Map.h"
 
 using namespace std;
 
 class Player
 {
+  public:
+	/* Constructor */
+	Player(string); // call map constructor as well
+	/* Destructor */
+	~Player();
+
+	/* Getters */
+	string getName();
+	int getBottle();
+	int getTick();
+	Cell getLocation();
+	vector<Product> getInventory();
+	const Map<Renderables> &getMap() const;
+
+	/* Setters */
+	void setName(string);
+	void setBottle(int);
+	void addProduct(string, int);
+	void removeProduct(string, int);
+
+	/* Methods concerning processTick() */
+	void moveUp();
+	void moveDown();
+	void moveLeft();
+	void moveRight();
+	void talk(); // talk to animal
+	void mix(FarmProduct &, FarmProduct &);
+	void interact(Facility);
+	void interact(FarmAnimal);
+	void kill();
+	void grow();
+
   private:
+	const Map<Renderables> &map; // permanent(?) reference to map
+
+	static int tick; // menghitung jumlah aksi yang dilalui
 	string name;
 	int bottle;
-	int tick; //menghitung jumlah aksi yang dilalui
 	Cell &location;
 	vector<Product> inventory;
-	Map<Renderables> &map;
 
 	void processTick();
 	/*
@@ -35,37 +66,6 @@ class Player
 		mengatur penambahan tick, pergerakan random farm animal,
 		dan juga mengecek kondisi berakhirnya game.
 	*/
-
-  public:
-	//ctor player, memanggil juga ctor map
-	Player(string _name);
-	//dtor
-	~Player();
-
-	//getter
-	string getName();
-	int getBottle();
-	int getTick();
-	Cell getLocation();
-	vector<Product> getInventory();
-	Map<Renderables> getMap();
-
-	//setter
-	void setName(string);
-	void setBottle(int);
-	void addProduct(string productName, int count);
-	void removeProduct(string productName, int count);
-
-	//Fungsi-fungsi yang memanggil processTick
-	void MoveUp();
-	void MoveDown();
-	void MoveLeft();
-	void MoveRight();
-	void Talk(); //talk to animal
-	void Mix(FarmProduct &, FarmProduct &);
-	void Interact();
-	void Kill();
-	void Grow();
 };
 
 #endif

@@ -4,17 +4,14 @@
 #include "../EggProducingFarmAnimal.h"
 #include "../MeatProducingFarmAnimal.h"
 
-class Bebek : public EggProducingFarmAnimal, public MeatProducingFarmAnimal {
-public:
-    // Konstruktor bebek
-    Bebek(int _x, int _y);
-    // Berbicara dengan Player
-    void Talk();
-    void Interact(Player& P); //create new DuckEgg, add to inventory
-    void Kill(Player& P); //create new DuckMeat, add to inventory
+class Bebek : public EggProducingFarmAnimal, public MeatProducingFarmAnimal
+{
+  public:
+    /* Constructor */
+    Bebek(); // generate at random cell, set representation
 
-    char Render();        //outputs char representation
-    void SetRender(char); //setter
+    /* Overrides */
+    void talk();
 };
 
 #endif

@@ -1,24 +1,26 @@
-#ifndef _FACILITY_H
-#define _FACILITY_H
+#ifndef FACILITY_H
+#define FACILITY_H
 
 #include "Cell.h"
-#include "Player.h"
 
-enum FACILITY_TYPE {
+enum FACILITY_TYPE
+{
 	WELL,
 	MIXER,
 	TRUCK
 };
 
-class Facility : public Cell{
-	public:
-		Facility(); //ctor
+class Facility : public Cell //ABC
+{
+public:
+	/* Getters */
+	CELL_TYPE cellType(); //return an int representation of child class facility
 
-		CELL_TYPE cellType() const; //return an int representation of child class facility
+	/* Virtuals */
+	virtual int facilityType() = 0; //mengembalikan jenis facility
 
-		virtual int facilityType() const = 0; //mengembalikan jenis facility
-
-		virtual void Interact(Player& P) = 0;
+protected:
+	CELL_TYPE cellType;
 };
 
 #endif

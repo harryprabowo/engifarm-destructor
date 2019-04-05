@@ -1,17 +1,15 @@
-#ifndef _RENDERABLES_H_
-#define _RENDERABLES_H_
-
-
+#ifndef RENDERABLES_H
+#define RENDERABLES_H
 
 using namespace std;
 
-class Renderables
+class Renderables // ABC
 {
+    public:
+        char render(); //outputs char representation
+        void setRender(char); //setter
     private:
         char representation;
-    public:
-        virtual char Render(); //outputs char representation
-        virtual void SetRender(char); //setter
 };
 
 #endif

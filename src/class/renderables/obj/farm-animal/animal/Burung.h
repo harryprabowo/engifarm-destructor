@@ -3,16 +3,14 @@
 
 #include "../MeatProducingFarmAnimal.h"
 
-class Burung : public MeatProducingFarmAnimal {
-public:
-    // Konstruktor burung
-    Burung(int _x, int _y);
-    // Berbicara dengan Player
-    void Talk();
-    void Kill(Player& P); //create new BirdMeat, add to inventory
+class Burung : public MeatProducingFarmAnimal
+{
+  public:
+    /* Constructor */
+    Burung(); // generate at random cell, set representation
 
-    char Render();        //outputs char representation
-    void SetRender(char); //setter
+    /* Overrides */
+    void talk();
 };
 
 #endif

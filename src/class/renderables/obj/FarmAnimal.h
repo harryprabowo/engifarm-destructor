@@ -1,51 +1,40 @@
-#ifndef FARMANIMAL_H
-#define FARMANIMAL_H
+#ifndef FARM_ANIMAL_H
+#define FARM_ANIMAL_H
 
 #include "Cell.h"
-#include "Player.h"
+#include "../../Product/Product.h"
 
-class FarmAnimal : public Renderables {
-protected:
-	Cell& location;     // Pointer ke lokasi hewan
-	bool hungry;        // Menandai hewan lapar(true) dan tidak lapar(false)
-	int hungryTime;     // Menghitung waktu hewan ketika lapar
-	bool alive;         // State hewan hidup atau mati
+class FarmAnimal : public Renderables //ABC
+{
+  public:
+	/* Getters & setters */
+	Cell &getCell(); //returns container cell
+	bool isHungry();
+	int getHungryDuration();
 
-public:
-	// Konstruktor FarmAnimal
-	FarmAnimal(int _x, int _y);
+	void setHungry(bool);
+	void setHungryTime(int);
 
-	// Position
-	Cell& GetLocation();
-	void RandomMove();
-	void MoveUp();
-	void MoveDown();
-	void MoveLeft();
-	void MoveRight();
+	/* Position-related methods - Setter for &cell */
+	void move();		 //random move
+	void move(int, int); //move with params
+	void moveUp();
+	void moveDown();
+	void moveLeft();
+	void moveRight();
 
-	// Setter dan Getter
-	// Melihat State Hungry
-	bool IsHungry();
-	// Melihat state Alive
-	bool IsAlive();
-	// Mendapatkan HungryTime
-	int GetHungryTime();
-	// Mengubah state Hungry hewan
-	void SetHungry(bool state);
-	// Mengubah HungryTime
-	void SetHungryTime(int time);
-	// Mengubah Alive
-	void SetAlive(bool state);
+	/* Methods */
+	virtual void eatFood();  // Hewan makan rumput jika lapar dan berada pada Cell yang ditumbuhi rumput \
+							Hewan yang memiliki FarmProduct akan berbeda jika makan
+	virtual void talk(); // talk with player
+	virtual Product interact(); // interact oleh player menghasilkan product - NULL default
+	virtual Product kill();	 // kill oleh player menghasilkan nama daging - NULL default
 
-	// Mengecek hewan mati atau belum karena lapar, kalau mati Alive = false
-	void Dead();
-
-	// Hewan makan rumput jika lapar dan berada pada Cell yang ditumbuhi rumput
-	// Hewan yang memiliki FarmProduct akan berbeda jika makan
-	void EatFood();
-
-	// Fungsi Talk dengan Player
-	virtual void Talk() = 0;
+  protected:
+	Cell &cell;			// Pointer ke lokasi hewan
+	bool hungry;		// Menandai hewan lapar(true) dan tidak lapar(false)
+	int hungryDuration; // Menghitung waktu hewan ketika lapar
+	bool alive;			// State hewan hidup atau mati
 };
 
 #endif

@@ -1,15 +1,11 @@
-#ifndef MEATPRODUCINGFARMANIMAL_H
-#define MEATPRODUCINGFARMANIMAL_H
+#ifndef MEAT_PRODUCING_FARMANIMAL_H
+#define MEAT_PRODUCING_FARMANIMAL_H
 
 #include "../FarmAnimal.h"
 
-class MeatProducingFarmAnimal : public FarmAnimal {
-public:
-    // Konstruktor MeatProducingFarmAnimal
-    MeatProducingFarmAnimal(int _x, int _y);
-
-    // Fungsi Kill oleh Player menghasilkan nama daging
-    virtual void Kill(Player& P) = 0;
+class MeatProducingFarmAnimal : public FarmAnimal // ABC
+{
+    Product kill();
 };
 
 #endif

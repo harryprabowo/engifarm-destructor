@@ -23,6 +23,6 @@ enum FARMPRODUCT_TYPE
 class FarmProduct : public Product{
 public:
     FarmProduct(int);
-	virtual FARMPRODUCT_TYPE farmProductType() = 0; //mengembalikan jenis farm product
+	virtual FARMPRODUCT_TYPE farmProductType(); //mengembalikan jenis farm product
 };
 #endif

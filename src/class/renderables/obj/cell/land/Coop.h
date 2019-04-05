@@ -1,16 +1,14 @@
 #ifndef _COOP_H
-#define _COOP_H 
+#define _COOP_H
 
 #include "../Land.h"
 
-class Coop : public Land{
-	public:
-		Coop(); //ctor
-		
-		LAND_TYPE landType(); //return an int representation of child class coop
+class Coop : public Land
+{
+  public:
+	Coop(); // generate at random cell, set representation
 
-		char Render();		  //outputs char representation
-		void SetRender(char); //setter
+	LAND_TYPE landType(); //return an int representation of child class coop
 };
 
 #endif

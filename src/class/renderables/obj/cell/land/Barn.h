@@ -1,16 +1,15 @@
 #ifndef _BARN_H
-#define _BARN_H 
+#define _BARN_H
 
 #include "../Land.h"
 
-class Barn : public Land{
-	public:
-		Barn(); //ctor
-		
-		LAND_TYPE landType(); //return an int representation of child class barn
+class Barn : public Land
+{
+  public:
+	/* Constructor */
+	Barn(); // generate at random cell, set representation
 
-		char Render();		  //outputs char representation
-		void SetRender(char); //setter
+	LAND_TYPE landType(); //return an int representation of child class barn
 };
 
 #endif

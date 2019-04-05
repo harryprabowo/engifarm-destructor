@@ -3,13 +3,11 @@
 
 #include "../Land.h"
 
-class Grassland : public Land{
-	public:
-		Grassland(); //ctor
+class Grassland : public Land
+{
+  public:
+	Grassland(); // generate at random cell, set representation
 
-		LAND_TYPE landType(); //return an int representation of child class grassland
-
-		char Render();		  //outputs char representation
-		void SetRender(char); //setter
+	LAND_TYPE landType(); //return an int representation of child class grassland
 };
 #endif
