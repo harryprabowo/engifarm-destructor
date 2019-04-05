@@ -256,10 +256,10 @@ void Player::kill(){
 
 void Player::grow(){
 	if(!bottle){
-		if(!location->hasGrass()){
-			if(Land* cell = dynamic_cast<Land*>(location)){
+		if(Land cell = dynamic_cast<Land*>(*location)){
+			if(!cell->hasGrass()){
 				bottle--;
-				location->setGrass(true);
+				cell->setGrass(true);
 			}
 			else{
 				cout << "Can't grow grass here" << endl;

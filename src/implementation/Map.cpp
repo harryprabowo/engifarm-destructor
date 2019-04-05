@@ -64,3 +64,4 @@ void Map::print()
         else
             cout << " ";
     }
+}
