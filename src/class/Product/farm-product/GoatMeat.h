@@ -8,7 +8,5 @@ class GoatMeat : public FarmProduct
 public:
 	GoatMeat();
 	//set price dari Product ini
-
-	FARMPRODUCT_TYPE farmProductType(); //mengembalikan identifier dari produk ini
 };
 #endif

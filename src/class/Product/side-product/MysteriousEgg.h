@@ -3,14 +3,10 @@
 
 #include "../SideProduct.h"
 
-const int harga;
-
 class MysteriousEgg : public SideProduct //ChickenEgg + DuckEgg
 {
 public:
 	MysteriousEgg();
 	//set price dari Product ini
-
-	SIDEPRODUCT_TYPE sideProductType(); //mengembalikan identifier dari produk ini
 };
 #endif

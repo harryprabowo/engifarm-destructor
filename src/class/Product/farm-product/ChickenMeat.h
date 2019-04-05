@@ -7,5 +7,6 @@ class ChickenMeat : public FarmProduct
 {
 public:
 	ChickenMeat();
+	//set price dari Product ini
 };
 #endif

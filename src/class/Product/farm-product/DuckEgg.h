@@ -3,8 +3,6 @@
 
 #include "../FarmProduct.h"
 
-const int harga;
-
 class DuckEgg : public FarmProduct
 {
 public:
