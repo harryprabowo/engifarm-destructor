@@ -12,6 +12,9 @@
 #include "../../Product/SideProduct.h"
 #include "cell/Facility.h"
 #include "cell/Land.h"
+#include "cell/land/Grassland.h"
+#include "cell/land/Coop.h"
+#include "cell/land/Barn.h"
 
 using namespace std;
 
@@ -40,7 +43,7 @@ class Player
 	void moveRight();
 	void talk(); // talk to animal
 	void mix(string,string);
-	void interact(Facility);
+	void interact(Facility&);
 	void interact(FarmAnimal);
 	void kill();
 	void grow();
