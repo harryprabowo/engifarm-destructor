@@ -4,7 +4,10 @@
 #include "../Cell.h"
 
 class Facility : public Cell{
-	
+    Facility(int,int);
+    
+    virtual void interact();
+    virtual void mix();
 };
 
 #endif
