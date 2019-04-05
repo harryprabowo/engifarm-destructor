@@ -1,4 +1,4 @@
-#include "../class/Product/farm-product/MysteriousMeat.h"
+#include "../class/Product/side-product/MysteriousMeat.h"
 using namespace std;
 
 MysteriousMeat::MysteriousMeat(){
