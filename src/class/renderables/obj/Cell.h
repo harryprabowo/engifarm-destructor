@@ -11,7 +11,7 @@ public:
   int getX(); // returns cell position in map
   int getY();
   Renderables* getRenderable();
-  void setRenderable();
+  void setRenderable(Renderables *_r);
 
 private:
   int x; // given by map
