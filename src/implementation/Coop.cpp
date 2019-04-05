@@ -4,7 +4,7 @@ using namespace std;
 
 Coop::Coop(int x, int y):Land(x, y)
 {
-	if (grass)
+	if (hasGrass())
 		setRender('@');
 	else
     	setRender('o');
