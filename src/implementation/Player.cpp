@@ -138,7 +138,7 @@ void Player::mix(string p1, string p2){
 	}
 }
 
-void Player::interact(Facility){
+void Player::interact(Facility&){
 	bool animal = false;
 	Renderables r_top = map->getObjectAt(location->getX(),location->getY()+1)->getRenderable();
 	Renderables r_bot = map->getObjectAt(location->getX(),location->getY()-1)->getRenderable();
