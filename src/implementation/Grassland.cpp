@@ -2,7 +2,8 @@
 
 using namespace std;
 
-Grassland::Grassland(int x, int y):Cell(x, y)
+Grassland::Grassland(int x, int y) : Land(x, y)
 {
+
     setRender('*');
 }

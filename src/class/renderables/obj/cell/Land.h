@@ -6,13 +6,14 @@
 class Land : public Cell // ABC
 {
   public:
-		/* Getters */
-		bool hasGrass(); //return grass
+	Land(int,int);
+	/* Getters */
+	bool hasGrass(); //return grass
 
-		/* Methods */
-		void setGrass(bool); //setter grass
+	/* Methods */
+	void setGrass(bool); //setter grass
   private:
-		bool grass; //kondisi apakah ada rumput atau tidak di land ini
+	bool grass; //kondisi apakah ada rumput atau tidak di land ini
 };
 
 #endif

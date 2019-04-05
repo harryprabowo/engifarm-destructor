@@ -2,12 +2,17 @@
 
 using namespace std;
 
+Land::Land(int x, int y) : Cell(x,y)
+{
+
+}
+
 /* Getters */
-bool isGrass(){
+bool Land::hasGrass(){
     return grass;
 }
 
 /* Methods */
-void setGrass(bool b){
+void Land::setGrass(bool b){
 	grass = b;
 }
