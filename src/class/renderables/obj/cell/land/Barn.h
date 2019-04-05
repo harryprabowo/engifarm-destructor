@@ -8,8 +8,6 @@ class Barn : public Land
   public:
 	/* Constructor */
 	Barn(); // generate at random cell, set representation
-
-	LAND_TYPE landType(); //return an int representation of child class barn
 };
 
 #endif

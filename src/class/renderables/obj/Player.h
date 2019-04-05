@@ -19,7 +19,6 @@ class Player
 	~Player();
 
 	/* Getters */
-	string getName();
 	int getBottle();
 	int getTick();
 	Cell getLocation();
@@ -29,8 +28,6 @@ class Player
 	/* Setters */
 	void setName(string);
 	void setBottle(int);
-	void addProduct(string, int);
-	void removeProduct(string, int);
 
 	/* Methods concerning processTick() */
 	void moveUp();
@@ -48,9 +45,8 @@ class Player
 	const Map<Renderables> &map; // permanent(?) reference to map
 
 	static int tick; // menghitung jumlah aksi yang dilalui
-	string name;
 	int bottle;
-	Cell &location;
+	Cell *location;
 	vector<Product> inventory;
 
 	void processTick();

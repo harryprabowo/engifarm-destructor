@@ -17,7 +17,6 @@ class FarmAnimal : public Renderables //ABC
 
 	/* Position-related methods - Setter for &cell */
 	void move();		 //random move
-	void move(int, int); //move with params
 	void moveUp();
 	void moveDown();
 	void moveLeft();
@@ -31,10 +30,9 @@ class FarmAnimal : public Renderables //ABC
 	virtual Product kill();	 // kill oleh player menghasilkan nama daging - NULL default
 
   protected:
-	Cell &cell;			// Pointer ke lokasi hewan
+	Cell *cell;			// Pointer ke lokasi hewan
 	bool hungry;		// Menandai hewan lapar(true) dan tidak lapar(false)
 	int hungryDuration; // Menghitung waktu hewan ketika lapar
-	bool alive;			// State hewan hidup atau mati
 };
 
 #endif

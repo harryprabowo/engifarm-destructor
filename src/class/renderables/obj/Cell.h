@@ -1,27 +1,20 @@
 #ifndef CELL_H
 #define CELL_H
 
-#include <tuple>
-
 #include "../Renderables.h"
-
-// enum CELL_TYPE
-// {
-//   FACILITY,
-//   LAND
-// };
 
 class Cell : public Renderables // ABC
 {
 public:
+  Cell(int, int);
   /* Getter */
-  tuple<int, int> getPosition(); // returns cell position in map
-
-  /* Overrides */
-  void setRender(char); //override Renderables method
+  int getX(); // returns cell position in map
+  int getY();
 
 private:
-  const tuple<int, int> position; // given by map
+  int x; // given by map
+  int y;
+  Renderables r;
 };
 
 #endif

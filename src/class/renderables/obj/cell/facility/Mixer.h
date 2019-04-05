@@ -7,10 +7,7 @@ class Mixer : public Facility
 {
   public:
 	/* Constructor */
-	Mixer(); // generate at hardcoded cell pos
-
-	/* Overrides */
-	FACILITY_TYPE facilityType(); //return an int representation of child class mixer
+	Mixer(int, int); // generate at hardcoded cell pos
 
 	char Render();		  //outputs char representation
 	void SetRender(char); //setter

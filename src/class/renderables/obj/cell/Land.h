@@ -1,31 +1,18 @@
 #ifndef LAND_H
 #define LAND_H
 
-#include "Cell.h"
-
-enum LAND_TYPE
-{
-	COOP,
-	GRASS,
-	BARN
-};
+#include "../Cell.h"
 
 class Land : public Cell // ABC
 {
   public:
-	/* Getters */
-	CELL_TYPE cellType(); //return an int representation of child class facility
+		/* Getters */
+		bool hasGrass(); //return grass
 
-	/* Methods */
-	void grow(Player &P); //menumbuhkan rumput pada Land - what is this?
-	bool isGrass(); //return grass
-	void setGrass(bool); //setter grass
-
-	/* Virtuals */
-	virtual LAND_TYPE landType() = 0; //mengembalikan jenis land
-
+		/* Methods */
+		void setGrass(bool); //setter grass
   private:
-	bool grass; //kondisi apakah ada rumput atau tidak di land ini
+		bool grass; //kondisi apakah ada rumput atau tidak di land ini
 };
 
 #endif
