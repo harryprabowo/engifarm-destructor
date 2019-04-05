@@ -7,6 +7,9 @@
 #include "../class/renderables/obj/cell/land/Barn.h"
 #include "../class/renderables/obj/cell/land/Coop.h"
 #include "../class/renderables/obj/cell/land/Grassland.h"
+#include "../class/renderables/obj/cell/facility/Mixer.h"
+#include "../class/renderables/obj/cell/facility/Well.h"
+#include "../class/renderables/obj/cell/facility/Truck.h"
 
 using namespace std;
 
@@ -74,11 +77,21 @@ main()
     Barn barn(0, 2);
     barn.setGrass(false);
 
+    Mixer mixer(0,3);
+    Truck truck(0,4);
+    Well well(0,5);
+
     c = &g;
     m.setObjectAt(c->getX(), c->getY(), c);
     c = &coop;
     m.setObjectAt(c->getX(), c->getY(), c);
     c = &barn;
+    m.setObjectAt(c->getX(), c->getY(), c);
+    c = &mixer;
+    m.setObjectAt(c->getX(), c->getY(), c);
+    c = &truck;
+    m.setObjectAt(c->getX(), c->getY(), c);
+    c = &well;
     m.setObjectAt(c->getX(), c->getY(), c);
 
     m.print();
