@@ -29,7 +29,7 @@ bool Map::isEmptyAt(int x, int y)
 // getter - can access abstract properties only
 Cell *Map::getObjectAt(int x, int y)
 {
-    if(x >= 0 && y >= 0 && x < m_mapWidth && y < m_mapHeight && m_mapArray[x * m_mapWidth + y].render()!=NULL){
+    if(x >= 0 && y >= 0 && x < m_mapWidth && y < m_mapHeight && m_mapArray[x * m_mapWidth + y]->getRenderable()!=NULL){
         return m_mapArray[x * m_mapWidth + y];
     }
     else {
@@ -65,11 +65,7 @@ main()
     Map m;
     Cell *c;
     Grassland g(0,0);
-    //Coop coop(0,1);
-    c = &g;
-
-    m.setObjectAt(0, 0, c);
-
+    Coop coop(0,1);
 
     m.print();
 }
