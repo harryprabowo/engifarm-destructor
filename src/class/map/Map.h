@@ -14,8 +14,8 @@ using namespace std;
 class Map
 {
 private:
-  const int m_mapWidth;
-  const int m_mapHeight;
+  int m_mapWidth;
+  int m_mapHeight;
   vector<Cell*> m_mapArray;
 
 public:

@@ -4,11 +4,12 @@
 using namespace std;
 
 Player::Player(Map m){
-	map = m;
+	map = &m;
 	tick = 0;
 	bottle = 10;
 	location = m.getObjectAt(1,1);
-	inventory = new vector<Product>();
+	vector<Product> v;
+	inventory = v;
 }
 
 int Player::getBottle(){
@@ -23,11 +24,11 @@ Cell* Player::getLocation(){
 	return location;
 }
 
-vector<Product> Player::getInventory{
+vector<Product> Player::getInventory(){
 	return inventory;
 }
 
-const Map<Renderables> Player::&getMap() const{
+Map* Player::getMap(){
 	return map;
 }
 
@@ -36,28 +37,28 @@ void Player::setBottle(int b){
 }
 
 void Player::moveUp(){
-	Cell* newLoc = map.getObjectAt(location.getX(),location.getY()+1);
+	Cell* newLoc = map->getObjectAt(location->getX(),location->getY()+1);
 	if(newLoc == NULL){
 		cout << "Can't move there" << endl;
 	}
 }
 
 void Player::moveDown(){
-	Cell* newLoc = map.getObjectAt(location.getX(),location.getY()-1);
+	Cell* newLoc = map->getObjectAt(location->getX(),location->getY()-1);
 	if(newLoc == NULL){
 		cout << "Can't move there" << endl;
 	}
 }
 
 void Player::moveLeft(){
-	Cell* newLoc = map.getObjectAt(location.getX()-1,location.getY());
+	Cell* newLoc = map->getObjectAt(location->getX()-1,location->getY());
 	if(newLoc == NULL){
 		cout << "Can't move there" << endl;
 	}
 }
 
 void Player::moveRight(){
-	Cell* newLoc = map.getObjectAt(location.getX()+1,location.getY());
+	Cell* newLoc = map->getObjectAt(location->getX()+1,location->getY());
 	if(newLoc == NULL){
 		cout << "Can't move there" << endl;
 	}

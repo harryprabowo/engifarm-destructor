@@ -5,8 +5,13 @@
 #include <vector>
 
 #include "Cell.h"
+#include "FarmAnimal.h"
 #include "../../Product/Product.h"
 #include "../../map/Map.h"
+#include "../../Product/FarmProduct.h"
+#include "../../Product/SideProduct.h"
+#include "cell/Facility.h"
+#include "cell/Land.h"
 
 using namespace std;
 
@@ -21,9 +26,9 @@ class Player
 	/* Getters */
 	int getBottle();
 	int getTick();
-	Cell getLocation();
+	Cell* getLocation();
 	vector<Product> getInventory();
-	const Map<Renderables> &getMap() const;
+	Map* getMap();
 
 	/* Setters */
 	void setBottle(int);
@@ -41,7 +46,7 @@ class Player
 	void grow();
 
   private:
-	const Map<Renderables> &map; // permanent(?) reference to map
+	Map *map; // permanent(?) reference to map
 
 	static int tick; // menghitung jumlah aksi yang dilalui
 	int bottle;
