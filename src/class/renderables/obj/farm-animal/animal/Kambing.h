@@ -11,7 +11,10 @@ class Kambing : public MilkProducingFarmAnimal, public MeatProducingFarmAnimal
     Kambing(); // generate at random cell, set representation
 
     /* Overrides */
+    void eatFood();
     void talk();
+    Product interact();
+    Product kill();
 };
 
 #endif

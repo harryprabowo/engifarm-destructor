@@ -11,7 +11,10 @@ class Bebek : public EggProducingFarmAnimal, public MeatProducingFarmAnimal
     Bebek(); // generate at random cell, set representation
 
     /* Overrides */
+    void eatFood();
     void talk();
+    Product interact();
+    Product kill();
 };
 
 #endif

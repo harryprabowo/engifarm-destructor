@@ -28,7 +28,7 @@ void FarmAnimal::setHungryTime(int t) {
 }
 
 void FarmAnimal::setCell(Cell *c){
-	
+	*cell = *c;
 }
 
 
@@ -53,28 +53,3 @@ void FarmAnimal::moveLeft() {
 void FarmAnimal::moveRight() {
 	
 }
-
-
-/* Methods */
-void FarmAnimal::eatFood() {
-	
-}
-// Hewan makan rumput jika lapar dan berada pada Cell yang ditumbuhi rumput \
-Hewan yang memiliki FarmProduct akan berbeda jika makan
-
-void FarmAnimal::talk() {}
-// talk with player
-
-Product FarmAnimal::interact() {
-	Product p, *q = &p;
-
-	q = NULL;
-	
-	return p;
-}
-// interact oleh player menghasilkan product - NULL default
-
-Product FarmAnimal::kill() {
-	return NULL;
-}
-// kill oleh player menghasilkan nama daging - NULL default

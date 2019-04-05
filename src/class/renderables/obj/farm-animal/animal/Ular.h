@@ -11,7 +11,10 @@ class Ular : public EggProducingFarmAnimal, public MeatProducingFarmAnimal
     Ular(); // generate at random cell, set representation
 
     /* Overrides */
+    void eatFood();
     void talk();
+    Product interact();
+    Product kill();
 };
 
 #endif

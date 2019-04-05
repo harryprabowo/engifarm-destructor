@@ -11,7 +11,10 @@ class Sapi : public MilkProducingFarmAnimal, public MeatProducingFarmAnimal
     Sapi(); // generate at random cell, set representation
 
     /* Overrides */
+    void eatFood();
     void talk();
+    Product interact();
+    Product kill();
 };
 
 #endif
