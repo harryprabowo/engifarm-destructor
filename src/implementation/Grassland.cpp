@@ -7,7 +7,7 @@ Grassland::Grassland(int x, int y) : Land(x, y)
 	if (hasGrass())
 		setRender('@');
 	else
-    	setRender('x');
+    	setRender('-');
 }
 
 void Grassland::setGrass(bool b){
@@ -15,5 +15,5 @@ void Grassland::setGrass(bool b){
 	if(b)
 		setRender('@');
 	else
-		setRender('*');
+		setRender('-');
 }

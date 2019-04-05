@@ -3,11 +3,13 @@
 
 using namespace std;
 
+#define HUNGRY_DURATION 5
+
 // Move dan Eat belum implementasi
 
 /* Getters & setters */
 Cell* FarmAnimal::getCell() {
-	return *cell;
+	return cell;
 }
 //returns container cell
 
@@ -53,3 +55,4 @@ void FarmAnimal::moveLeft() {
 void FarmAnimal::moveRight() {
 	
 }
+

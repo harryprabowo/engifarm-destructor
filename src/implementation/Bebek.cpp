@@ -9,19 +9,23 @@ Bebek::Bebek(){
 }
 
 void Bebek::eatFood(){
-
+	if(egg = NULL){
+		egg = new DuckEgg();
+	}
 }
 
 void Bebek::talk(){
-	cout << "Kwek!" << endl;
+	cout << "Kwek.." << endl;
 }
 
-Product Bebek::interact(){
-	
+Product* Bebek::interact(){
+	Product* res = egg;
+	egg = NULL;
+	return res;
 }
 
-Product Bebek::kill(){
+Product* Bebek::kill(){
 	DuckMeat dm;
 	Product *p = &dm;
-	return *p;
+	return p;
 }
