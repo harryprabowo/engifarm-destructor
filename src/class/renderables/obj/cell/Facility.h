@@ -4,6 +4,7 @@
 #include "../Cell.h"
 
 class Facility : public Cell{
+	public
     Facility(int,int);
     
     virtual void interact();
