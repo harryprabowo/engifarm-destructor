@@ -6,9 +6,17 @@ Truck::Truck(int x, int y) : Facility(x, y)
 {
 }
 
+void Truck::cooldown()
+{
+    lastUsed -= COOL_DOWN;
+}
+
 int Truck::interact()
 {
-    return 2;
+    if (cooldown == 0)
+        return 2;
+    else
+        return -1;    
 }
 
 int Truck::mix()
