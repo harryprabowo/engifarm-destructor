@@ -6,7 +6,7 @@
 class Coop : public Land
 {
   public:
-	Coop(); // generate at random cell, set representation
+	Coop(int, int); // generate at random cell, set representation
 	void setGrass(bool); //setter grass
 };
 

@@ -7,7 +7,7 @@ using namespace std;
 
 /* Getters & setters */
 Cell* FarmAnimal::getCell() {
-	return cell;
+	return *cell;
 }
 //returns container cell
 
@@ -19,13 +19,16 @@ int FarmAnimal::getHungryDuration() {
 	return hungryDuration;
 }
 
-
 void FarmAnimal::setHungry(bool h) {
 	hungry = h;
 }
 
 void FarmAnimal::setHungryTime(int t) {
 	hungryDuration = t;
+}
+
+void FarmAnimal::setCell(Cell *c){
+	
 }
 
 
