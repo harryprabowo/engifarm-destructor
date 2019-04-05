@@ -7,3 +7,19 @@ Cell::Cell(int _x, int _y){
     y = _y;
     r = NULL;
 }
+
+int Cell::getX(){
+	return x;
+}
+
+int Cell::getY(){
+	return y;
+}
+
+Renderables* Cell::getRenderable(){
+	return r;
+}
+
+void Cell::setRenderable(Renderables* _r){
+	r = _r;
+}
