@@ -12,7 +12,7 @@ protected:
 public:
   virtual void eatFood();
   virtual void talk();
-  virtual Product interact();
+  virtual Product* interact();
 };
 
 #endif

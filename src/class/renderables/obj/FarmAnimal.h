@@ -27,8 +27,8 @@ class FarmAnimal : public Renderables //ABC
 	virtual void eatFood();  // Hewan makan rumput jika lapar dan berada pada Cell yang ditumbuhi rumput \
 							Hewan yang memiliki FarmProduct akan berbeda jika makan
 	virtual void talk(); // talk with player
-	virtual Product interact(); // interact oleh player menghasilkan product - NULL default
-	virtual Product kill();	 // kill oleh player menghasilkan nama daging - NULL default
+	virtual Product* interact(); // interact oleh player menghasilkan product - NULL default
+	virtual Product* kill();	 // kill oleh player menghasilkan nama daging - NULL default
 
   protected:
 	Cell *cell;			// Pointer ke lokasi hewan

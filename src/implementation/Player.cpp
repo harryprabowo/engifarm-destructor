@@ -65,7 +65,34 @@ void Player::moveRight(){
 }
 
 void Player::talk(){
-
+	bool animal = false;
+	Renderables r_top = map->getObjectAt(location->getX(),location->getY()+1)->getRenderable();
+	Renderables r_bot = map->getObjectAt(location->getX(),location->getY()-1)->getRenderable();
+	Renderables r_rig = map->getObjectAt(location->getX()+1,location->getY())->getRenderable();
+	Renderables r_lef = map->getObjectAt(location->getX()-1,location->getY())->getRenderable();
+	if(r_top!= NULL){
+		if(FarmAnimal* fa = dynamic_cast<FarmAnimal*>(r_top)){
+			fa->talk(); animal = true;
+		}
+	}
+	else if(r_rig!= NULL){
+		if(FarmAnimal* fa = dynamic_cast<FarmAnimal*>(r_top)){
+			fa->talk(); animal = true;
+		}
+	}
+	else if(r_bot!= NULL){
+		if(FarmAnimal* fa = dynamic_cast<FarmAnimal*>(r_top)){
+			fa->talk(); animal = true;
+		}
+	}
+	else if(r_bot!= NULL){
+		if(FarmAnimal* fa = dynamic_cast<FarmAnimal*>(r_top)){
+			fa->talk(); animal = true;
+		}
+	}
+	if(!animal){
+		cout << "No animal to talk to" << endl;
+	}
 }
 
 void Player::mix(FarmProduct &, FarmProduct &){
@@ -77,7 +104,35 @@ void Player::interact(Facility){
 }
 
 void Player::interact(FarmAnimal){
-
+	bool animal = false;
+	Renderables r_top = map->getObjectAt(location->getX(),location->getY()+1)->getRenderable();
+	Renderables r_bot = map->getObjectAt(location->getX(),location->getY()-1)->getRenderable();
+	Renderables r_rig = map->getObjectAt(location->getX()+1,location->getY())->getRenderable();
+	Renderables r_lef = map->getObjectAt(location->getX()-1,location->getY())->getRenderable();
+	if(r_top!= NULL){
+		if(FarmAnimal* fa = dynamic_cast<FarmAnimal*>(r_top)){
+			Product p = fa->interact(); animal = true;
+		}
+	}
+	else if(r_rig!= NULL){
+		if(FarmAnimal* fa = dynamic_cast<FarmAnimal*>(r_top)){
+			Product p = fa->interact(); animal = true;
+		}
+	}
+	else if(r_bot!= NULL){
+		if(FarmAnimal* fa = dynamic_cast<FarmAnimal*>(r_top)){
+			Product p = fa->interact(); animal = true;
+			if(p != NULL)
+		}
+	}
+	else if(r_bot!= NULL){
+		if(FarmAnimal* fa = dynamic_cast<FarmAnimal*>(r_top)){
+			Product p = fa->interact(); animal = true;
+		}
+	}
+	if(!animal){
+		cout << "No animal to talk to" << endl;
+	}
 }
 
 void Player::kill(){
