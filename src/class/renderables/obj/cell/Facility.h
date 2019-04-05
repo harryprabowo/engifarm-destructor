@@ -5,9 +5,9 @@
 
 class Facility : public Cell{
     Facility(int,int);
-    
-    virtual void interact();
-    virtual void mix();
+
+    virtual int interact();
+    virtual int mix();
 };
 
 #endif

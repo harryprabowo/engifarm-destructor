@@ -8,6 +8,7 @@ class Well : public Facility
 public:
 	Well(int, int); //ctor
 
-	void interact();
+	int interact();
+	int mix();
 };
 #endif

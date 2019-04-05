@@ -9,7 +9,8 @@ class Mixer : public Facility
 	/* Constructor */
 	Mixer(int, int); // generate at hardcoded cell pos
 
-	void mix();
+	int interact();
+	int mix();
 };
 
 #endif
