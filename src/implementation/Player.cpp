@@ -1,3 +1,8 @@
+#include "../class/renderables/obj/Player.h"
+#include <iostream>
+
+using namespace std;
+
 Player::Player(Map m){
 	map = m;
 	tick = 0;
