@@ -1,5 +1,5 @@
 #ifndef _SnakeMeat_H
-#define _SnakeMeat_H  
+#define _SnakeMeat_H
 
 #include "../FarmProduct.h"
 

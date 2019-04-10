@@ -161,19 +161,19 @@ void Player::mix(string s1, string s2)
 
 	if (pos_a != NULL && pos_b != NULL)
 	{
-		if ((ChickenEgg *p1 = dynamic_cast<ChickenEgg *>(a) && (DuckEgg *p2 = dynamic_cast<DuckEgg *>(b))) || (ChickenEgg *p3 = dynamic_cast<ChickenEgg *>(b) && (DuckEgg *p4 = dynamic_cast<DuckEgg *>(a))))
+		if ((static_cast<ChickenEgg *>(a) != NULL && static_cast<DuckEgg *>(b) != NULL) || (static_cast<ChickenEgg *>(b) != NULL && (static_cast<DuckEgg *>(a) != NULL)))
 		{
 			inventory.erase(inventory.begin() + pos_a);
 			inventory.erase(inventory.begin() + pos_b);
 			inventory.push_back(new MysteriousEgg());
 		}
-		else if ((BirdMeat *p1 = dynamic_cast<BirdMeat *>(a) && (SnakeMeat *p2 = dynamic_cast<SnakeMeat *>(b))) || (SnakeMeat *p3 = dynamic_cast<SnakeMeat *>(b) && (BirdMeat *p4 = dynamic_cast<BirdMeat *>(a))))
+		else if ((static_cast<BirdMeat *>(a) != NULL && (static_cast<SnakeMeat *>(b) != NULL)) || (static_cast<SnakeMeat *>(a) != NULL && (static_cast<BirdMeat *>(b) != NULL)))
 		{
 			inventory.erase(inventory.begin() + pos_a);
 			inventory.erase(inventory.begin() + pos_b);
 			inventory.push_back(new MysteriousMeat());
 		}
-		else if ((GoatMilk *p1 = dynamic_cast<GoatMilk *>(a) && (CowMilk *p2 = dynamic_cast<CowMilk *>(b))) || (CowMilk *p3 = dynamic_cast<CowMilk *>(b) && (GoatMilk *p4 = dynamic_cast<GoatMilk *>(a))))
+		else if ((static_cast<GoatMilk *>(a) != NULL && (static_cast<CowMilk *>(b) != NULL)) || (static_cast<CowMilk *>(a) != NULL && (static_cast<GoatMilk *>(b) != NULL)))
 		{
 			inventory.erase(inventory.begin() + pos_a);
 			inventory.erase(inventory.begin() + pos_b);
