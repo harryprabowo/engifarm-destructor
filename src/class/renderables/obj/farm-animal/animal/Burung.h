@@ -2,6 +2,7 @@
 #define BURUNG_H
 
 #include "../MeatProducingFarmAnimal.h"
+#include "../../../../Product/farm-product/BirdMeat.h"
 
 class Burung : public MeatProducingFarmAnimal
 {

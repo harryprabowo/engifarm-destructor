@@ -3,6 +3,8 @@
 
 #include "../MilkProducingFarmAnimal.h"
 #include "../MeatProducingFarmAnimal.h"
+#include "../../../../Product/farm-product/CowMeat.h"
+#include "../../../../Product/farm-product/CowMilk.h"
 
 class Sapi : public MilkProducingFarmAnimal, public MeatProducingFarmAnimal
 {

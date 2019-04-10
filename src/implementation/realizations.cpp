@@ -22,7 +22,7 @@
 #include "Mixer.cpp"
 #include "MysteriousEgg.cpp"
 #include "MysteriousMeat.cpp"
-#include "MysteriousMeat.cpp"
+#include "MysteriousMilk.cpp"
 #include "Player.cpp"
 #include "Product.cpp"
 #include "Renderables.cpp"

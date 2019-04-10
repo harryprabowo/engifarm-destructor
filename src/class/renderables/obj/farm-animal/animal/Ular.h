@@ -3,6 +3,8 @@
 
 #include "../EggProducingFarmAnimal.h"
 #include "../MeatProducingFarmAnimal.h"
+#include "../../../../Product/farm-product/SnakeMeat.h"
+#include "../../../../Product/farm-product/SnakeEgg.h"
 
 class Ular : public EggProducingFarmAnimal, public MeatProducingFarmAnimal
 {

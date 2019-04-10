@@ -3,6 +3,8 @@
 
 #include "../MilkProducingFarmAnimal.h"
 #include "../MeatProducingFarmAnimal.h"
+#include "../../../../Product/farm-product/GoatMeat.h"
+#include "../../../../Product/farm-product/GoatMilk.h"
 
 class Kambing : public MilkProducingFarmAnimal, public MeatProducingFarmAnimal
 {

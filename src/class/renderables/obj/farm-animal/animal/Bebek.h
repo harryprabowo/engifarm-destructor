@@ -3,6 +3,8 @@
 
 #include "../EggProducingFarmAnimal.h"
 #include "../MeatProducingFarmAnimal.h"
+#include "../../../../Product/farm-product/DuckMeat.h"
+#include "../../../../Product/farm-product/DuckEgg.h"
 
 class Bebek : public EggProducingFarmAnimal, public MeatProducingFarmAnimal
 {
