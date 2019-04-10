@@ -5,7 +5,9 @@
 
 class MeatProducingFarmAnimal : public FarmAnimal // ABC
 {
-    virtual Product* kill();
+    public:
+        virtual ~MeatProducingFarmAnimal(){}
+        virtual Product* kill(){}
 };
 
 #endif

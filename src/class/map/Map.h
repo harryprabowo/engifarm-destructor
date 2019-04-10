@@ -8,8 +8,8 @@
 
 using namespace std;
 
-#define MAX_MAP_WIDTH 20
-#define MAX_MAP_HEIGHT 20
+#define MAX_MAP_WIDTH 10
+#define MAX_MAP_HEIGHT 10
 
 class Map
 {

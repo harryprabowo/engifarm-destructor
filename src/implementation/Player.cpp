@@ -1,4 +1,5 @@
 #include "../class/renderables/obj/Player.h"
+#include "../class/Product/farm-product/SnakeMeat.h" // i dunno why
 #include <iostream>
 #include <typeinfo>
 
@@ -12,6 +13,8 @@ Player::Player(Map m)
 	location = m.getObjectAt(1, 1);
 	vector<Product *> v;
 	inventory = v;
+	
+	setRender('P');
 }
 
 FarmProduct *Player::searchInInvent(string p)
@@ -167,17 +170,17 @@ void Player::mix(string s1, string s2)
 			inventory.erase(inventory.begin() + pos_b);
 			inventory.push_back(new MysteriousEgg());
 		}
-		else if ((static_cast<BirdMeat *>(a) != NULL && (static_cast<SnakeMeat *>(b) != NULL)) || (static_cast<SnakeMeat *>(a) != NULL && (static_cast<BirdMeat *>(b) != NULL)))
-		{
-			inventory.erase(inventory.begin() + pos_a);
-			inventory.erase(inventory.begin() + pos_b);
-			inventory.push_back(new MysteriousMeat());
-		}
 		else if ((static_cast<GoatMilk *>(a) != NULL && (static_cast<CowMilk *>(b) != NULL)) || (static_cast<CowMilk *>(a) != NULL && (static_cast<GoatMilk *>(b) != NULL)))
 		{
 			inventory.erase(inventory.begin() + pos_a);
 			inventory.erase(inventory.begin() + pos_b);
 			inventory.push_back(new MysteriousMilk());
+		}
+		else if ((static_cast<BirdMeat *>(a) != NULL && (static_cast<SnakeMeat *>(b) != NULL)) || (static_cast<SnakeMeat *>(a) != NULL && (static_cast<BirdMeat *>(b) != NULL)))
+		{
+			inventory.erase(inventory.begin() + pos_a);
+			inventory.erase(inventory.begin() + pos_b);
+			inventory.push_back(new MysteriousMeat());
 		}
 		else
 		{
@@ -478,4 +481,13 @@ void Player::grow()
 	{
 		cout << "No water" << endl;
 	}
+}
+
+void Player::printInventory()
+{
+	cout << "INVENTORY" << endl;
+	cout << "----------------------------" << endl;
+	
+	for (auto i = inventory.begin(); i != inventory.end(); ++i)
+		cout << (*i)->getProdName() << endl;
 }

@@ -9,11 +9,11 @@ class MilkProducingFarmAnimal : public FarmAnimal //ABC
 protected:
   FarmProduct *milk;
 
-  public:
-  virtual void eatFood();
-  virtual void talk();
-  virtual Product* interact();
-  
+public:
+  virtual ~MilkProducingFarmAnimal(){}
+  virtual void eatFood(){}
+  virtual void talk(){}
+  virtual Product *interact(){}
 };
 
 #endif

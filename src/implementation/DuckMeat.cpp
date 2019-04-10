@@ -3,4 +3,5 @@ using namespace std;
 
 DuckMeat::DuckMeat(){
 	price = 7;
+	setProdName("DuckMeat");
 }

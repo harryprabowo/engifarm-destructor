@@ -10,7 +10,6 @@ class Burung : public MeatProducingFarmAnimal
     /* Overrides */
     void eatFood();
     void talk();
-    Product* interact();
     Product* kill();
 };
 

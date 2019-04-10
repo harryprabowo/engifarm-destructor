@@ -8,6 +8,7 @@ class FarmAnimal : public Renderables //ABC
 {
 public:
 	FarmAnimal();
+	virtual ~FarmAnimal();
 
 	/* Getters & setters */
 	Cell *getCell(); //returns container cell

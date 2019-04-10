@@ -10,9 +10,10 @@ protected:
   FarmProduct *egg;
 
 public:
-  virtual void eatFood();
-  virtual void talk();
-  virtual Product* interact();
+  virtual ~EggProducingFarmAnimal(){}
+  virtual void eatFood(){}
+  virtual void talk(){}
+  virtual Product* interact(){}
 };
 
 #endif

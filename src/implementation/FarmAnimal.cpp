@@ -5,59 +5,85 @@ using namespace std;
 
 #define HUNGRY_DURATION 5
 
-FarmAnimal::FarmAnimal() {
+FarmAnimal::FarmAnimal()
+{
 	hungry = false;
 	hungryDuration = 0;
+}
+
+FarmAnimal::~FarmAnimal()
+{
 }
 
 // Move dan Eat belum implementasi
 
 /* Getters & setters */
-Cell* FarmAnimal::getCell() {
+Cell *FarmAnimal::getCell()
+{
 	return cell;
 }
 //returns container cell
 
-bool FarmAnimal::isHungry() {
+bool FarmAnimal::isHungry()
+{
 	return hungry;
 }
 
-int FarmAnimal::getHungryDuration() {
+int FarmAnimal::getHungryDuration()
+{
 	return hungryDuration;
 }
 
-void FarmAnimal::setHungry(bool h) {
+void FarmAnimal::setHungry(bool h)
+{
 	hungry = h;
 }
 
-void FarmAnimal::setHungryTime(int t) {
+void FarmAnimal::setHungryTime(int t)
+{
 	hungryDuration = t;
 }
 
-void FarmAnimal::setCell(Cell *c){
+void FarmAnimal::setCell(Cell *c)
+{
 	*cell = *c;
 }
 
-
 /* Position-related methods - Setter for &cell */
-void FarmAnimal::move() {
-	
+void FarmAnimal::move()
+{
 }
 //random move
 
-void FarmAnimal::moveUp() {
-	
+void FarmAnimal::moveUp()
+{
 }
 
-void FarmAnimal::moveDown() {
-	
+void FarmAnimal::moveDown()
+{
 }
 
-void FarmAnimal::moveLeft() {
-	
+void FarmAnimal::moveLeft()
+{
 }
 
-void FarmAnimal::moveRight() {
-	
+void FarmAnimal::moveRight()
+{
 }
 
+void FarmAnimal::eatFood()
+{
+
+}
+void FarmAnimal::talk()
+{
+
+}
+
+Product *FarmAnimal::interact()
+{
+}
+
+Product *FarmAnimal::kill()
+{
+}

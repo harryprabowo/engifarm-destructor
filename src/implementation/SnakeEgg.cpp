@@ -3,4 +3,5 @@ using namespace std;
 
 SnakeEgg::SnakeEgg(){
 	price = 10;
+	setProdName("SnakeEgg");
 }

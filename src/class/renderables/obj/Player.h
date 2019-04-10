@@ -18,7 +18,7 @@
 
 using namespace std;
 
-class Player
+class Player : public Renderables
 {
   public:
 	/* Constructor */
@@ -48,10 +48,13 @@ class Player
 	void kill();
 	void grow();
 
+	/* Other methods */
+	void printInventory();
+
   private:
 	Map *map; // permanent(?) reference to map
 
-	static int tick; // menghitung jumlah aksi yang dilalui
+	int tick; // menghitung jumlah aksi yang dilalui
 	int bottle;
 	int money;
 	Cell *location;
