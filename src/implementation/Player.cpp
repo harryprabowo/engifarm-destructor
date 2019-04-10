@@ -249,7 +249,7 @@ void Player::kill(){
 	else if(r_bot!= NULL){
 		if(FarmAnimal* fa = dynamic_cast<FarmAnimal*>(r_top)){
 			Product* p = fa->kill(); animal = true;
-			if(p!= null){inventory.push_back(p);}
+			if(p!= NULL){inventory.push_back(p);}
 		}
 	}
 	if(!animal){
