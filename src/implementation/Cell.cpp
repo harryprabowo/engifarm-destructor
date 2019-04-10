@@ -3,25 +3,27 @@
 
 using namespace std;
 
-Cell::Cell(int _x, int _y){
-    x = _x;
-    y = _y;
+Cell::Cell(int _x, int _y)
+{
+	x = _x;
+	y = _y;
 }
 
-int Cell::getX(){
+int Cell::getX()
+{
 	return x;
 }
 
-int Cell::getY(){
+int Cell::getY()
+{
 	return y;
 }
 
-FarmAnimal *Cell::getAnimal()
+Renderables *Cell::getRenderable()
 {
-	return animal;
+	return r;
 }
-
-void Cell::setAnimal(FarmAnimal *_r)
+void Cell::setRenderable(Renderables *_r)
 {
-	animal = _r;
+	r = _r;
 }

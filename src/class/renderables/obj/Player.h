@@ -58,7 +58,7 @@ class Player
 	vector<Product*> inventory;
 
 	void processTick();
-	FarmProduct& searchInInvent(std::string p);
+	FarmProduct* searchInInvent(string p);
 	int searchInInventPos(string p);
 	/*
 		dipanggil setiap aksi :

@@ -14,15 +14,17 @@ Player::Player(Map m)
 	inventory = v;
 }
 
-FarmProduct &Player::searchInInvent(string p)
+FarmProduct *Player::searchInInvent(string p)
 {
 	for (int i = 0; i < inventory.size(); i++)
 	{
 		if (typeid(inventory[i]).name() == p)
 		{
-			return inventory[i];
+			FarmProduct *some = static_cast<FarmProduct *>(inventory[i]);
+			return some;
 		}
 	}
+
 	return NULL;
 }
 
@@ -113,7 +115,7 @@ void Player::talk()
 	Renderables *r_lef = map->getObjectAt(location->getX() - 1, location->getY())->getRenderable();
 	if (r_top != NULL)
 	{
-		if (FarmAnimal *fa = dynamic_cast<FarmAnimal *>(r_top))
+		if (FarmAnimal *fa = static_cast<FarmAnimal *>(r_top))
 		{
 			fa->talk();
 			animal = true;
@@ -121,7 +123,7 @@ void Player::talk()
 	}
 	else if (r_rig != NULL)
 	{
-		if (FarmAnimal *fa = dynamic_cast<FarmAnimal *>(r_top))
+		if (FarmAnimal *fa = static_cast<FarmAnimal *>(r_top))
 		{
 			fa->talk();
 			animal = true;
@@ -129,7 +131,7 @@ void Player::talk()
 	}
 	else if (r_bot != NULL)
 	{
-		if (FarmAnimal *fa = dynamic_cast<FarmAnimal *>(r_top))
+		if (FarmAnimal *fa = static_cast<FarmAnimal *>(r_top))
 		{
 			fa->talk();
 			animal = true;
@@ -137,7 +139,7 @@ void Player::talk()
 	}
 	else if (r_bot != NULL)
 	{
-		if (FarmAnimal *fa = dynamic_cast<FarmAnimal *>(r_top))
+		if (FarmAnimal *fa = static_cast<FarmAnimal *>(r_top))
 		{
 			fa->talk();
 			animal = true;
@@ -149,30 +151,32 @@ void Player::talk()
 	}
 }
 
-void Player::mix(string p1, string p2)
+void Player::mix(string s1, string s2)
 {
-	FarmProduct a = searchInInvent(p1);
-	FarmProduct b = searchInInvent(p2);
-	int pos_a = searchInInventPos(p1);
-	int pos_b = searchInInventPos(p2);
+	FarmProduct *a = searchInInvent(s1);
+	FarmProduct *b = searchInInvent(s2);
+	
+	int pos_a = searchInInventPos(s1);
+	int pos_b = searchInInventPos(s2);
+
 	if (pos_a != NULL && pos_b != NULL)
 	{
 		if ((ChickenEgg *p1 = dynamic_cast<ChickenEgg *>(a) && (DuckEgg *p2 = dynamic_cast<DuckEgg *>(b))) || (ChickenEgg *p3 = dynamic_cast<ChickenEgg *>(b) && (DuckEgg *p4 = dynamic_cast<DuckEgg *>(a))))
 		{
-			inventory.erase(pos_a);
-			inventory.erase(pos_b);
+			inventory.erase(inventory.begin() + pos_a);
+			inventory.erase(inventory.begin() + pos_b);
 			inventory.push_back(new MysteriousEgg());
 		}
 		else if ((BirdMeat *p1 = dynamic_cast<BirdMeat *>(a) && (SnakeMeat *p2 = dynamic_cast<SnakeMeat *>(b))) || (SnakeMeat *p3 = dynamic_cast<SnakeMeat *>(b) && (BirdMeat *p4 = dynamic_cast<BirdMeat *>(a))))
 		{
-			inventory.erase(pos_a);
-			inventory.erase(pos_b);
+			inventory.erase(inventory.begin() + pos_a);
+			inventory.erase(inventory.begin() + pos_b);
 			inventory.push_back(new MysteriousMeat());
 		}
 		else if ((GoatMilk *p1 = dynamic_cast<GoatMilk *>(a) && (CowMilk *p2 = dynamic_cast<CowMilk *>(b))) || (CowMilk *p3 = dynamic_cast<CowMilk *>(b) && (GoatMilk *p4 = dynamic_cast<GoatMilk *>(a))))
 		{
-			inventory.erase(pos_a);
-			inventory.erase(pos_b);
+			inventory.erase(inventory.begin() + pos_a);
+			inventory.erase(inventory.begin() + pos_b);
 			inventory.push_back(new MysteriousMilk());
 		}
 		else
@@ -195,7 +199,7 @@ void Player::interact(Facility &)
 	Renderables *r_lef = map->getObjectAt(location->getX() - 1, location->getY())->getRenderable();
 	if (r_top != NULL)
 	{
-		if (Facility *fa = dynamic_cast<Facility *>(r_top))
+		if (Facility *fa = static_cast<Facility *>(r_top))
 		{
 			switch (fa->interact())
 			{
@@ -203,14 +207,17 @@ void Player::interact(Facility &)
 				cout << "Use command Mix" << endl;
 				break;
 			case 2:
+			{
 				int tot = 0;
+
 				for (int i = 0; i < inventory.size(); i++)
-				{
-					tot += inventory[i].getPrice();
-				}
-				inventory = new vector<Product>();
+					tot += inventory[i]->getPrice();
+
+				inventory.clear();
+
 				cout << "Sold all items for " << tot << endl;
 				break;
+			}
 			case 3:
 				bottle = 10;
 				cout << "Bottle filled to the brim" << endl;
@@ -223,37 +230,94 @@ void Player::interact(Facility &)
 	}
 	else if (r_rig != NULL)
 	{
-		if (Facility *fa = dynamic_cast<Facility *>(r_top))
+		if (Facility *fa = static_cast<Facility *>(r_rig))
 		{
-			Product *p = fa->interact();
-			animal = true;
-			if (p != null)
+			switch (fa->interact())
 			{
-				inventory.push_back(p);
+			case 1:
+				cout << "Use command Mix" << endl;
+				break;
+			case 2:
+			{
+				int tot = 0;
+
+				for (int i = 0; i < inventory.size(); i++)
+					tot += inventory[i]->getPrice();
+
+				inventory.clear();
+
+				cout << "Sold all items for " << tot << endl;
+				break;
+			}
+			case 3:
+				bottle = 10;
+				cout << "Bottle filled to the brim" << endl;
+				break;
+			default:
+				cout << "Failed to use facility" << endl;
+				break;
 			}
 		}
 	}
 	else if (r_bot != NULL)
 	{
-		if (Facility *fa = dynamic_cast<Facility *>(r_top))
+		if (Facility *fa = static_cast<Facility *>(r_bot))
 		{
-			Product *p = fa->interact();
-			animal = true;
-			if (p != null)
+			switch (fa->interact())
 			{
-				inventory.push_back(p);
+			case 1:
+				cout << "Use command Mix" << endl;
+				break;
+			case 2:
+			{
+				int tot = 0;
+
+				for (int i = 0; i < inventory.size(); i++)
+					tot += inventory[i]->getPrice();
+
+				inventory.clear();
+
+				cout << "Sold all items for " << tot << endl;
+				break;
+			}
+			case 3:
+				bottle = 10;
+				cout << "Bottle filled to the brim" << endl;
+				break;
+			default:
+				cout << "Failed to use facility" << endl;
+				break;
 			}
 		}
 	}
-	else if (r_bot != NULL)
+	else if (r_lef != NULL)
 	{
-		if (Facility *fa = dynamic_cast<Facility *>(r_top))
+		if (Facility *fa = static_cast<Facility *>(r_lef))
 		{
-			Product *p = fa->interact();
-			animal = true;
-			if (p != null)
+			switch (fa->interact())
 			{
-				inventory.push_back(p);
+			case 1:
+				cout << "Use command Mix" << endl;
+				break;
+			case 2:
+			{
+				int tot = 0;
+
+				for (int i = 0; i < inventory.size(); i++)
+					tot += inventory[i]->getPrice();
+
+				inventory.clear();
+
+				cout << "Sold all items for " << tot << endl;
+				break;
+			}
+			case 3:
+				bottle = 10;
+				cout << "Bottle filled to the brim" << endl;
+				break;
+			default:
+				cout << "Failed to use facility" << endl;
+				break;
 			}
 		}
 	}
@@ -266,17 +330,18 @@ void Player::interact(Facility &)
 void Player::interact(FarmAnimal)
 {
 	bool animal = false;
-	Renderables r_top = map->getObjectAt(location->getX(), location->getY() + 1)->getRenderable();
-	Renderables r_bot = map->getObjectAt(location->getX(), location->getY() - 1)->getRenderable();
-	Renderables r_rig = map->getObjectAt(location->getX() + 1, location->getY())->getRenderable();
-	Renderables r_lef = map->getObjectAt(location->getX() - 1, location->getY())->getRenderable();
+	Renderables *r_top = map->getObjectAt(location->getX(), location->getY() + 1)->getRenderable();
+	Renderables *r_bot = map->getObjectAt(location->getX(), location->getY() - 1)->getRenderable();
+	Renderables *r_rig = map->getObjectAt(location->getX() + 1, location->getY())->getRenderable();
+	Renderables *r_lef = map->getObjectAt(location->getX() - 1, location->getY())->getRenderable();
+
 	if (r_top != NULL)
 	{
-		if (FarmAnimal *fa = dynamic_cast<FarmAnimal *>(r_top))
+		if (FarmAnimal *fa = static_cast<FarmAnimal *>(r_top))
 		{
 			Product *p = fa->interact();
 			animal = true;
-			if (p != null)
+			if (p != NULL)
 			{
 				inventory.push_back(p);
 			}
@@ -284,11 +349,11 @@ void Player::interact(FarmAnimal)
 	}
 	else if (r_rig != NULL)
 	{
-		if (FarmAnimal *fa = dynamic_cast<FarmAnimal *>(r_top))
+		if (FarmAnimal *fa = static_cast<FarmAnimal *>(r_rig))
 		{
 			Product *p = fa->interact();
 			animal = true;
-			if (p != null)
+			if (p != NULL)
 			{
 				inventory.push_back(p);
 			}
@@ -296,23 +361,23 @@ void Player::interact(FarmAnimal)
 	}
 	else if (r_bot != NULL)
 	{
-		if (FarmAnimal *fa = dynamic_cast<FarmAnimal *>(r_top))
+		if (FarmAnimal *fa = static_cast<FarmAnimal *>(r_bot))
 		{
 			Product *p = fa->interact();
 			animal = true;
-			if (p != null)
+			if (p != NULL)
 			{
 				inventory.push_back(p);
 			}
 		}
 	}
-	else if (r_bot != NULL)
+	else if (r_lef != NULL)
 	{
-		if (FarmAnimal *fa = dynamic_cast<FarmAnimal *>(r_top))
+		if (FarmAnimal *fa = static_cast<FarmAnimal *>(r_lef))
 		{
 			Product *p = fa->interact();
 			animal = true;
-			if (p != null)
+			if (p != NULL)
 			{
 				inventory.push_back(p);
 			}
@@ -328,48 +393,60 @@ void Player::kill()
 {
 	bool animal = false;
 
-	FarmAnimal *r_top = map->getObjectAt(location->getX(), location->getY() + 1)->getAnimal();
-	FarmAnimal *r_bot = map->getObjectAt(location->getX(), location->getY() - 1)->getAnimal();
-	FarmAnimal *r_rig = map->getObjectAt(location->getX() + 1, location->getY())->getAnimal();
-	FarmAnimal *r_lef = map->getObjectAt(location->getX() - 1, location->getY())->getAnimal();
+	Renderables *r_top = map->getObjectAt(location->getX(), location->getY() + 1)->getRenderable();
+	Renderables *r_bot = map->getObjectAt(location->getX(), location->getY() - 1)->getRenderable();
+	Renderables *r_rig = map->getObjectAt(location->getX() + 1, location->getY())->getRenderable();
+	Renderables *r_lef = map->getObjectAt(location->getX() - 1, location->getY())->getRenderable();
 
 	if (r_top != NULL)
 	{
-		Product *p = r_top->kill();
-		animal = true;
-		if (p != NULL)
+		if (FarmAnimal *fa = static_cast<FarmAnimal *>(r_top))
 		{
-			inventory.push_back(p);
-		}
-	}
-	else if (r_rig != NULL)
-	{
-		Product *p = r_rig->kill();
-		animal = true;
-		if (p != NULL)
-		{
-			inventory.push_back(p);
+			Product *p = fa->kill();
+			animal = true;
+			if (p != NULL)
+			{
+				inventory.push_back(p);
+			}
 		}
 	}
 	else if (r_bot != NULL)
 	{
-		Product *p = r_bot->kill();
-		animal = true;
-		if (p != NULL)
+		if (FarmAnimal *fa = static_cast<FarmAnimal *>(r_bot))
 		{
-			inventory.push_back(p);
+			Product *p = fa->kill();
+			animal = true;
+			if (p != NULL)
+			{
+				inventory.push_back(p);
+			}
+		}
+	}
+	else if (r_rig != NULL)
+	{
+		if (FarmAnimal *fa = static_cast<FarmAnimal *>(r_rig))
+		{
+			Product *p = fa->kill();
+			animal = true;
+			if (p != NULL)
+			{
+				inventory.push_back(p);
+			}
 		}
 	}
 	else if (r_lef != NULL)
 	{
-		Product *p = r_lef->kill();
-		animal = true;
-		if (p != NULL)
+		if (FarmAnimal *fa = static_cast<FarmAnimal *>(r_lef))
 		{
-			inventory.push_back(p);
+			Product *p = fa->kill();
+			animal = true;
+			if (p != NULL)
+			{
+				inventory.push_back(p);
+			}
 		}
 	}
-	
+
 	if (!animal)
 	{
 		cout << "No animal to kill" << endl;
@@ -380,7 +457,7 @@ void Player::grow()
 {
 	if (!bottle)
 	{
-		if (Land *cell = dynamic_cast<Land *>(*location))
+		if (Land *cell = static_cast<Land *>(location))
 		{
 			if (!cell->hasGrass())
 			{
