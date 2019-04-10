@@ -6,7 +6,6 @@ using namespace std;
 Cell::Cell(int _x, int _y){
     x = _x;
     y = _y;
-    r = NULL;
 }
 
 int Cell::getX(){
@@ -17,10 +16,12 @@ int Cell::getY(){
 	return y;
 }
 
-Renderables* Cell::getRenderable(){
-	return r;
+FarmAnimal *Cell::getAnimal()
+{
+	return animal;
 }
 
-void Cell::setRenderable(Renderables* _r){
-	r = _r;
+void Cell::setAnimal(FarmAnimal *_r)
+{
+	animal = _r;
 }
