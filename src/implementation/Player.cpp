@@ -1,5 +1,6 @@
 #include "../class/renderables/obj/Player.h"
 #include <iostream>
+#include <typeinfo>
 
 using namespace std;
 
@@ -12,7 +13,7 @@ Player::Player(Map m){
 	inventory = v;
 }
 
-FarmProduct& searchInInvent(string p){
+FarmProduct& Player::searchInInvent(string p){
 	for(int i=0;i<inventory.size();i++){
 		if(typeid(inventory[i]).name() == p){
 			return inventory[i];
@@ -21,13 +22,13 @@ FarmProduct& searchInInvent(string p){
 	return NULL;
 }
 
-int searchInInventPos(string p){
+int Player::searchInInventPos(string p){
 	for(int i=0;i<inventory.size();i++){
 		if(typeid(inventory[i]).name() == p){
 			return i;
 		}
 	}
-	return NULL;
+	return 0;
 }
 
 int Player::getBottle(){
@@ -84,10 +85,10 @@ void Player::moveRight(){
 
 void Player::talk(){
 	bool animal = false;
-	Renderables r_top = map->getObjectAt(location->getX(),location->getY()+1)->getRenderable();
-	Renderables r_bot = map->getObjectAt(location->getX(),location->getY()-1)->getRenderable();
-	Renderables r_rig = map->getObjectAt(location->getX()+1,location->getY())->getRenderable();
-	Renderables r_lef = map->getObjectAt(location->getX()-1,location->getY())->getRenderable();
+	Renderables *r_top = map->getObjectAt(location->getX(),location->getY()+1)->getRenderable();
+	Renderables *r_bot = map->getObjectAt(location->getX(),location->getY()-1)->getRenderable();
+	Renderables *r_rig = map->getObjectAt(location->getX()+1,location->getY())->getRenderable();
+	Renderables *r_lef = map->getObjectAt(location->getX()-1,location->getY())->getRenderable();
 	if(r_top!= NULL){
 		if(FarmAnimal* fa = dynamic_cast<FarmAnimal*>(r_top)){
 			fa->talk(); animal = true;
@@ -114,8 +115,10 @@ void Player::talk(){
 }
 
 void Player::mix(string p1, string p2){
-	a = searchInInvent(p1); b = searchInInvent(p2);
-	pos_a = searchInInventPos(p1); pos_b = searchInInventPos(p2);
+	FarmProduct a = searchInInvent(p1); 
+	FarmProduct b = searchInInvent(p2);
+	int pos_a = searchInInventPos(p1); 
+	int pos_b = searchInInventPos(p2);
 	if(pos_a != NULL && pos_b != NULL){
 		if((ChickenEgg* p1 = dynamic_cast<ChickenEgg*>(a) && (DuckEgg* p2 = dynamic_cast<DuckEgg*>(b))) || (ChickenEgg* p3 = dynamic_cast<ChickenEgg*>(b) && (DuckEgg* p4 = dynamic_cast<DuckEgg*>(a)))){
 			inventory.erase(pos_a); inventory.erase(pos_b);
@@ -140,10 +143,10 @@ void Player::mix(string p1, string p2){
 
 void Player::interact(Facility&){
 	bool animal = false;
-	Renderables r_top = map->getObjectAt(location->getX(),location->getY()+1)->getRenderable();
-	Renderables r_bot = map->getObjectAt(location->getX(),location->getY()-1)->getRenderable();
-	Renderables r_rig = map->getObjectAt(location->getX()+1,location->getY())->getRenderable();
-	Renderables r_lef = map->getObjectAt(location->getX()-1,location->getY())->getRenderable();
+	Renderables *r_top = map->getObjectAt(location->getX(),location->getY()+1)->getRenderable();
+	Renderables *r_bot = map->getObjectAt(location->getX(),location->getY()-1)->getRenderable();
+	Renderables *r_rig = map->getObjectAt(location->getX()+1,location->getY())->getRenderable();
+	Renderables *r_lef = map->getObjectAt(location->getX()-1,location->getY())->getRenderable();
 	if(r_top!= NULL){
 		if(Facility* fa = dynamic_cast<Facility*>(r_top)){
 			switch(fa->interact()){
