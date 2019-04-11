@@ -10,8 +10,8 @@ string mainScreen(Map *m, Player *p)
     m->print();
     p->printInventory();
     cout << endl;
-    cout << "Money :" << p->getMoney() << endl;
-    cout << "Water :" << p->getBottle() << endl;
+    cout << "Money : " << p->getMoney() << endl;
+    cout << "Water : " << p->getBottle() << endl;
     cout << "=====================================================" << endl;
     cout << "Command: ";
     

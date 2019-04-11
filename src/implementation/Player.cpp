@@ -21,6 +21,7 @@ Player::Player(Map *m)
 	map = m;
 	tick = 0;
 	bottle = 10;
+	money = 0;
 
 	location = m->getObjectAt(0, 0); 
 	location->setRenderable(this);
