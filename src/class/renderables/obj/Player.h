@@ -15,6 +15,9 @@
 #include "cell/land/Grassland.h"
 #include "cell/land/Coop.h"
 #include "cell/land/Barn.h"
+#include "cell/facility/Mixer.h"
+#include "cell/facility/Truck.h"
+#include "cell/facility/Well.h"
 
 using namespace std;
 
@@ -29,6 +32,7 @@ class Player : public Renderables
 	/* Getters */
 	int getBottle();
 	int getTick();
+	double getMoney();
 	Cell* getLocation();
 	vector<Product*> getInventory();
 	Map* getMap();
@@ -57,7 +61,7 @@ class Player : public Renderables
 
 	int tick; // menghitung jumlah aksi yang dilalui
 	int bottle;
-	int money;
+	double money;
 	Cell *location;
 	vector<Product*> inventory;
 

@@ -72,6 +72,11 @@ int Player::getTick()
 	return tick;
 }
 
+double Player::getMoney()
+{
+	return money;
+}
+
 Cell *Player::getLocation()
 {
 	return location;
@@ -107,7 +112,7 @@ void Player::move(int x, int y)
 
 void Player::moveUp()
 {
-	if(location->getY() == 0)
+	if(location->getX() == 0)
 		return;
 
 	move(-1,0);
@@ -115,7 +120,7 @@ void Player::moveUp()
 
 void Player::moveDown()
 {
-	if (location->getY() == MAX_MAP_HEIGHT - 1)
+	if (location->getX() == MAX_MAP_HEIGHT - 1)
 		return;
 
 	move(1,0);
@@ -123,7 +128,7 @@ void Player::moveDown()
 
 void Player::moveLeft()
 {
-	if (location->getX() == 0)
+	if (location->getY() == 0)
 		return;
 
 	move(0,-1);
@@ -515,7 +520,11 @@ void Player::printInventory()
 {
 	cout << "INVENTORY" << endl;
 	cout << "----------------------------" << endl;
-	
-	for (auto i = inventory.begin(); i != inventory.end(); ++i)
-		cout << (*i)->getProdName() << endl;
+
+	if(inventory.empty())
+		cout << "<empty>" << endl;
+	else {
+		for (auto i = inventory.begin(); i != inventory.end(); ++i)
+			cout << (*i)->getProdName() << endl;
+	}
 }
