@@ -18,8 +18,10 @@ using namespace std;
 Map::Map()
     : m_mapWidth(MAX_MAP_WIDTH), m_mapHeight(MAX_MAP_HEIGHT)
 {
-    for (int i = 0; i < m_mapWidth * m_mapHeight; ++i)
-        m_mapArray.push_back(NULL);
+    for (int i = 0; i < m_mapWidth; ++i){
+        for (int j = 0; j < m_mapHeight; ++j)
+            m_mapArray.push_back(new Cell(i, j));
+    }
 }
 
 /* ------------------------------METHODS------------------------------ */
@@ -27,35 +29,28 @@ Map::Map()
 
 bool Map::isEmptyAt(int x, int y)
 {
-    return m_mapArray[x * m_mapWidth + y] == NULL;
+    return m_mapArray[y * m_mapWidth + x] == NULL;
 }
 
 // getter - can access abstract properties only
-Cell *Map::getObjectAt(int x, int y)
+Cell *Map::getObjectAt(int y, int x)
 {
-    if (x >= 0 && y >= 0 && x < m_mapWidth && y < m_mapHeight && m_mapArray[x * m_mapWidth + y]->getRenderable() != NULL)
-    {
-        return m_mapArray[x * m_mapWidth + y];
-    }
-    else
-    {
-        return NULL;
-    }
+    return m_mapArray[y * m_mapWidth + x];
 }
 
 // setter
 // if not empty, throw MultipleOccupancy exception
-void Map::setObjectAt(int x, int y, Cell *obj)
+void Map::setObjectAt(int y, int x, Cell *obj)
 {
-    m_mapArray[x * m_mapWidth + y] = obj;
+    m_mapArray[y * m_mapWidth + x] = obj;
 }
 
 void Map::print()
 {
     for (int i = 0; i < m_mapWidth * m_mapHeight; ++i)
     {
-        if (m_mapArray[i] == NULL)
-            cout << ".";
+        if(m_mapArray[i]->getRenderable() != NULL)
+            cout << m_mapArray[i]->getRenderable()->render();
         else
             cout << m_mapArray[i]->render();
 

@@ -5,16 +5,24 @@
 
 using namespace std;
 
-Player::Player(Map m)
+Player::Player(Map *m)
 {
-	map = &m;
+	map = m;
 	tick = 0;
 	bottle = 10;
-	location = m.getObjectAt(1, 1);
+
+	location = m->getObjectAt(0, 0); 
+	location->setRenderable(this);
+
 	vector<Product *> v;
 	inventory = v;
 	
-	setRender('P');
+	setRender('?');
+}
+
+Player::~Player()
+{
+
 }
 
 FarmProduct *Player::searchInInvent(string p)
@@ -73,40 +81,49 @@ void Player::setBottle(int b)
 	bottle = b;
 }
 
+void Player::move(int x, int y)
+{
+	Cell *c = map->getObjectAt(location->getX() + x, location->getY() + y);
+	if (c->getRenderable() != NULL)
+		cout << "Can't move there" << endl;
+	else
+	{
+		location->setRenderable(NULL);
+		location = c;
+		location->setRenderable(this);
+	}
+}
+
 void Player::moveUp()
 {
-	Cell *newLoc = map->getObjectAt(location->getX(), location->getY() + 1);
-	if (newLoc == NULL)
-	{
-		cout << "Can't move there" << endl;
-	}
+	if(location->getY() == 0)
+		return;
+
+	move(-1,0);
 }
 
 void Player::moveDown()
 {
-	Cell *newLoc = map->getObjectAt(location->getX(), location->getY() - 1);
-	if (newLoc == NULL)
-	{
-		cout << "Can't move there" << endl;
-	}
+	if (location->getY() == MAX_MAP_HEIGHT - 1)
+		return;
+
+	move(1,0);
 }
 
 void Player::moveLeft()
 {
-	Cell *newLoc = map->getObjectAt(location->getX() - 1, location->getY());
-	if (newLoc == NULL)
-	{
-		cout << "Can't move there" << endl;
-	}
+	if (location->getX() == 0)
+		return;
+
+	move(0,-1);
 }
 
 void Player::moveRight()
 {
-	Cell *newLoc = map->getObjectAt(location->getX() + 1, location->getY());
-	if (newLoc == NULL)
-	{
-		cout << "Can't move there" << endl;
-	}
+	if (location->getY() == MAX_MAP_WIDTH - 1)
+		return;
+
+	move(0,1);
 }
 
 void Player::talk()

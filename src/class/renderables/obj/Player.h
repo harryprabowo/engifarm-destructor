@@ -22,9 +22,9 @@ class Player : public Renderables
 {
   public:
 	/* Constructor */
-	Player(Map m); // call map constructor as well
+	Player(Map *m); // call map constructor as well
 	/* Destructor */
-	~Player();
+	virtual ~Player();
 
 	/* Getters */
 	int getBottle();
@@ -37,6 +37,7 @@ class Player : public Renderables
 	void setBottle(int);
 
 	/* Methods concerning processTick() */
+	void move(int, int);
 	void moveUp();
 	void moveDown();
 	void moveLeft();
