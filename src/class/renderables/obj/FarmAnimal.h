@@ -2,12 +2,13 @@
 #define FARM_ANIMAL_H
 
 #include "Cell.h"
+#include "../../map/Map.h"
 #include "../../Product/Product.h"
 
 class FarmAnimal : public Renderables //ABC
 {
 public:
-	FarmAnimal();
+	FarmAnimal(Map *);
 	virtual ~FarmAnimal();
 
 	/* Getters & setters */
@@ -20,11 +21,12 @@ public:
 	void setCell(Cell *);
 
 	/* Position-related methods - Setter for &cell */
-	void move(); //random move
+	void move(int,int); //random move
 	void moveUp();
 	void moveDown();
 	void moveLeft();
 	void moveRight();
+	void moveRand();
 
 	/* Methods */
 	virtual void eatFood();		 // Hewan makan rumput jika lapar dan berada pada Cell yang ditumbuhi rumput \
@@ -34,9 +36,10 @@ public:
 	virtual Product *kill();	 // kill oleh player menghasilkan nama daging - NULL default
 
 protected:
-	Cell *cell;			// Pointer ke lokasi hewan
+	Cell *location;			// Pointer ke lokasi hewan
 	bool hungry;		// Menandai hewan lapar(true) dan tidak lapar(false)
 	int hungryDuration; // Menghitung waktu hewan ketika lapar
+	Map *map;
 };
 
 #endif

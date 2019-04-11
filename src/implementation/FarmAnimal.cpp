@@ -1,14 +1,25 @@
 #include "../class/renderables/obj/FarmAnimal.h"
 #include <stddef.h>
-
-using namespace std;
+#include <ctime>
 
 #define HUNGRY_DURATION 5
 
-FarmAnimal::FarmAnimal()
+using namespace std;
+
+FarmAnimal::FarmAnimal(Map * m)
 {
 	hungry = false;
 	hungryDuration = 0;
+
+	map = m;
+
+	srand(time(NULL));
+	int x = rand() % MAX_MAP_WIDTH;
+	srand(time(NULL));
+	int y = rand() % MAX_MAP_HEIGHT;
+
+	location = m->getObjectAt(x, y);
+	location->setRenderable(this);
 }
 
 FarmAnimal::~FarmAnimal()
@@ -20,7 +31,7 @@ FarmAnimal::~FarmAnimal()
 /* Getters & setters */
 Cell *FarmAnimal::getCell()
 {
-	return cell;
+	return location;
 }
 //returns container cell
 
@@ -46,38 +57,79 @@ void FarmAnimal::setHungryTime(int t)
 
 void FarmAnimal::setCell(Cell *c)
 {
-	*cell = *c;
+	*location = *c;
 }
 
 /* Position-related methods - Setter for &cell */
-void FarmAnimal::move()
+
+void FarmAnimal::move(int x, int y)
 {
+	Cell *c = map->getObjectAt(location->getX() + x, location->getY() + y);
+
+	if (c->getRenderable() == NULL)
+	{
+		location->setRenderable(NULL);
+		location = c;
+		location->setRenderable(this);
+	}
+	else
+		moveRand();
 }
 //random move
 
 void FarmAnimal::moveUp()
 {
+	if (location->getY() == 0)
+		return;
+
+	move(-1, 0);
 }
 
 void FarmAnimal::moveDown()
 {
+	if (location->getY() == MAX_MAP_HEIGHT - 1)
+		return;
+
+	move(1, 0);
 }
 
 void FarmAnimal::moveLeft()
 {
+	if (location->getX() == 0)
+		return;
+
+	move(0, -1);
 }
 
 void FarmAnimal::moveRight()
 {
+	if (location->getY() == MAX_MAP_WIDTH - 1)
+		return;
+
+	move(0, 1);
+}
+
+void FarmAnimal::moveRand()
+{
+	srand(time(NULL));
+
+	int n = rand() % 4 + 1;
+
+	if (n == 1)
+		moveUp();
+	else if (n == 2)
+		moveDown();
+	else if (n == 3)
+		moveLeft();
+	else
+		moveRight();
 }
 
 void FarmAnimal::eatFood()
 {
-
 }
 void FarmAnimal::talk()
 {
-
 }
 
 Product *FarmAnimal::interact()

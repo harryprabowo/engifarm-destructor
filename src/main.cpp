@@ -23,8 +23,6 @@ int main()
     c = &barn;
     m.setObjectAt(c->getX(), c->getY(), c);
 
-    m.print();
-
     p.moveRight();
     p.moveRight();
     p.moveRight();

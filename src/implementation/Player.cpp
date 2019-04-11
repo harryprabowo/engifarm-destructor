@@ -1,7 +1,18 @@
 #include "../class/renderables/obj/Player.h"
-#include "../class/Product/farm-product/SnakeMeat.h" // i dunno why
 #include <iostream>
 #include <typeinfo>
+
+#include "../../src/class/Product/farm-product/BirdMeat.h"
+#include "../../src/class/Product/farm-product/ChickenEgg.h"
+#include "../../src/class/Product/farm-product/ChickenMeat.h"
+#include "../../src/class/Product/farm-product/CowMeat.h"
+#include "../../src/class/Product/farm-product/CowMilk.h"
+#include "../../src/class/Product/farm-product/DuckEgg.h"
+#include "../../src/class/Product/farm-product/DuckMeat.h"
+#include "../../src/class/Product/farm-product/GoatMeat.h"
+#include "../../src/class/Product/farm-product/GoatMilk.h"
+#include "../../src/class/Product/farm-product/SnakeEgg.h"
+#include "../../src/class/Product/farm-product/SnakeMeat.h"
 
 using namespace std;
 
