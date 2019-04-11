@@ -466,13 +466,13 @@ int main()
         cout << "-------------------------------------------------------------------" << endl;
     }
 
-    cout << "Thank you!" << endl;
     cout << "13517094 - Harry Prabowo" << endl;
     cout << "13517103 - Vincent Chuardi" << endl;
     cout << "13517094 - Lucky Jonathan Chandra" << endl;
     cout << "13517094 - Fata Nugraha" << endl << endl;
 
-    cout << "TUBES OOP 1 - ENGI'S FARM" << endl << endl;
+    cout << "TUBES OOP 1 - ENGI'S FARM" << endl;
+    cout << "Thank you!" << endl << endl;
 
     return 0;
 }
