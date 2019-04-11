@@ -453,6 +453,10 @@ int main()
             p.moveLeft();
         else if(input == "right")
             p.moveRight();
+        else if(input == "interact") {}
+        else if(input == "mix") {}
+        else if(input == "talk") {}
+        else if(input == "grow") {}
         else
         {
             cout << "Command tidak dikenal." << endl;
